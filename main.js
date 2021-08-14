@@ -54,10 +54,12 @@ class Correo{
         this.correo = pCorreo;
     }
 }
+const correoArray = [];
 var correo = alert(prompt("Ingrese correo (ejemplo@gmail.com)"));
-var correoIngresado = new Correo(1, correo);
+var pCorreoCliente = new Correo(1, correo);
 
 
+/*
 
 //Nombre y apellido
 class BoxNameClient{
@@ -74,7 +76,7 @@ class BoxNameClient{
     //    this. client = function sumar (pName, pLastName){ return pName + pLastName} 
     //    //Puedo nombrar de manera global pNombre
     }
-    guardarNombreCompleto(pNombreCompleto)
+    guardarNombreCompleto(pNombreCompleto) //ME TIRA ERROR EL GOOGLE, Q NO ESTA DEFINIDO
     {
         this.NomCompArray.push(pNombreCompleto);
     }
@@ -98,3 +100,5 @@ const sumarNombre = (nombre, apellido) => { return (nombre + " " + apellido)}
 var resSumNomb = sumarNombre(nombre, apellido);
 var IngNombComp = new NombreCliente (1, resSumNomb)
 //ACA sigo pensando como hacer para que el "1" del id de pIdNomComp se aumente solo.
+
+*/
