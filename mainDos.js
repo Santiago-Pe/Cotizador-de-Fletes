@@ -23,9 +23,6 @@ class BoxCLientContact{
         datosCliente.push(pEmail);
     }
 }
-
-
-
 /*
 //FUNCIONES
 function pedirNombreCompleto() {
@@ -47,7 +44,7 @@ function gaurdarDatosCliente(pNombreCompleto, pEmail) {
 // var pEmail = cliente.pedirEmail();
 // var datosCliente = [pNombreCompleto, pEmail];
 // gaurdarDatosCliente(pNombreCompleto, pEmail);
-var cliente = new BoxCLientContact();
+var cliente = new BoxCLientContact(); //ACA ESTA EL PROBLEMA
 cliente.pedirNombreCompleto();
 cliente.pedirEmail();
 cliente.datosCliente;
