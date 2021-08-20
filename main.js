@@ -1,3 +1,5 @@
+//Aun no esta armado el algoritmo de procedimientos.
+//PRODUCTOS
 class Producto
 {
     constructor(id, nombre, talle, marca, precio)
@@ -32,4 +34,28 @@ const buzosXL = productosArray.find(buzo => buzo === "XL");
 const buzosL = productosArray.find(buzo => buzo === "L");
 const buzosM = productosArray.find(buzo => buzo === "M");
 
-const productosPromo = productosArray.map(producto => productoFor.precio * 0.85);
+const productosPromo = productosArray.map(productoFor => productoFor.precio * 0.85);
+
+
+//CLIENTES
+class BoxCLientContact{
+    constructor(id, nombreCompleto, email){
+    this.id = id;
+    this.nombreCompleto = nombreCompleto;
+    this.email = email;
+    }
+}
+//falta agregar las condiciones para que se cumplan nuestros requisitos de orden
+//primero apellido y luego apellido. Y poner esta accion dentro de una funcion 
+//do while o for, porque es una accion que la hace el cliente cada vez que realize
+//una compra nueva.
+
+var nombreCompleto = prompt("Ingrese su nombre completo");
+var email = prompt("ingrese su email (ejemplo@gmail.com)")
+const datosCliente = []
+
+gaurdarDatosCliente() 
+{
+    datosCliente.push(nombreCompleto);
+    datosCliente.push(email);
+}

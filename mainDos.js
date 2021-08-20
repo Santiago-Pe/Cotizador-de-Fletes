@@ -1,51 +1,38 @@
-//CLASS Y OBJETOS
-//OBJETO CLIENTE: compuesto por un Id, Nombre completo y un Correo.
-class BoxCLientContact{
-    constructor(pIidCliente, pNombreCompleto, pEmail){
-    this.id = pIidCliente;
-    this.nombreCompleto = pNombreCompleto;
-    this.email = pEmail;
-    datosCliente= [];
+class Producto
+{
+    constructor(id, nombre, talle, marca, precio)
+    {
+        this.id = id
+        this.nombre = nombre.toUpperCase();
+        this.talle = talle.toUpperCase();
+        this.marca = marca.toUpperCase();
+        this.precio = parseFloat(precio);
     }
-    pedirNombreCompleto() {
-        let ingreseNombre = prompt("Ingrese su nombre");
-        let ingreseApellido = prompt ("Ingrese su apellido");
-        let pNombreCompleto= ingreseNombre + " "+ ingreseApellido;
-        return pNombreCompleto;
-    }
-    pedirEmail() {
-        let ingreseEmail = prompt("Ingrese su email (ejemplo@email.com)");
-        let pEmail = ingreseEmail;
-        return pEmail;
-    }
-    gaurdarDatosCliente(pNombreCompleto, pEmail) {
-        datosCliente.push(pNombreCompleto);
-        datosCliente.push(pEmail);
+    
+    sumaIva()
+    {
+        this.precio = this.precio * 1.21;
     }
 }
-/*
-//FUNCIONES
-function pedirNombreCompleto() {
-    let ingreseNombre = prompt("Ingrese su nombre");
-    let ingreseApellido = prompt ("Ingrese su apellido");
-    return ingreseNombre + " "+ ingreseApellido;
-}
-function pedirEmail() {
-    let ingreseEmail = prompt("Ingrese su email (ejemplo@email.com)");
-    return ingreseEmail;
-}
-function gaurdarDatosCliente(pNombreCompleto, pEmail) {
-    datosCliente.push(pNombreCompleto);
-    datosCliente.push(pEmail);
-}
-*/
-// //VARIABLES GLOBALES
-// var pNombreCompleto = cliente.pedirNombreCompleto();
-// var pEmail = cliente.pedirEmail();
-// var datosCliente = [pNombreCompleto, pEmail];
-// gaurdarDatosCliente(pNombreCompleto, pEmail);
-var cliente = new BoxCLientContact(); //ACA ESTA EL PROBLEMA
-cliente.pedirNombreCompleto();
-cliente.pedirEmail();
-cliente.datosCliente;
 
+//Listado de Productos
+productosArray = []
+productosArray.push ( new Producto(1,"Buzo RBW", "XL", "Adidas", 6500));
+productosArray.push ( new Producto(2,"Buzo Black Red", "M", "Adidas", 6000));
+productosArray.push ( new Producto(3,"Buzo Three Stripes", "L", "Adidas", 5000));
+productosArray.push ( new Producto(4,"Buzo Goalkeeper", "L", "Adidas", 5500));
+productosArray.push ( new Producto(5,"Buzo Classic", "XL", "Adidas", 7000));
+
+
+
+
+
+for (const prod of productosArray) 
+{
+    let contenedor = document.createElement("div");
+    contenedor.innerHTML = 
+    `<h3> ID: ${prod.id}</h3>
+    <p>  Producto: ${prod.nombre}</p>
+    <b> $ ${prod.precio}</b>`;
+document.body.appendChild(contenedor);
+}
