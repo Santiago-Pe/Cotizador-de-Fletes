@@ -1,91 +1,35 @@
-//CLASS Y OBJETOS
-//OBJETO CLIENTE: compuesto por un Id, Nombre completo y un Correo.
-class BoxCLientContact{
-    constructor(pIidCliente, pNombreCompleto, pEmail){
-    this.id = pIidCliente;
-    this.nombreCompleto = pNombreCompleto;
-    this.email = pEmail;
-    this.backUp = [];
+class Producto
+{
+    constructor(id, nombre, talle, marca, precio)
+    {
+        this.id = id
+        this.nombre = nombre.toUpperCase();
+        this.talle = talle.toUpperCase();
+        this.marca = marca.toUpperCase();
+        this.precio = parseFloat(precio);
     }
-    // 
     
-
-    //COMO Hacer para que cada vez que ingreso un cliente, me aumente en 1 el numero de id
-}
-
-class Carrito{
-    constructor(pIdUsuario) {
-        this.idUsuario = pIdUsuario
-        this.productosAlm = [];
-    }
-    ponerProdCarr(pProductos) {
-        this.productos.push(pProductos);
-    }
-    guardarProd(pProductos) {
-        for (let i = 0; i < pProductos.length; i++) {
-            this.productos.push(pProductos[i]); //Esto consultar que onda.
-        }
-    } 
-}
-
-class Producto{
-    constructor(pIdProd, pName, pMarca, pTalle, pPrecio) {
-        this.idProd = pIdProd;
-        this.name = pName;
-        this.marca = pMarca;
-        this.talle = pTalle;
-        this.precio = pPrecio
+    sumaIva()
+    {
+        this.precio = this.precio * 1.21;
     }
 }
-function sumaItems(){
-     
-}
-//Objeto form , objeto ClienteComprador, objetoResumenCompra : aca tengo que crear un objeto de formualrio, que tome propiedades y metodos
-//de otros objetos. Para crear su funcionalidad. Te tiene que pedir tu nombre y apellido,
-//email, direccion, codigo postal, telefono, tarjeta, (datos de tarjeta), forma de pago, cuotas, productos,
-//total, etc. Ver porque se repiten mucho la info.
 
-//FUNCIONES
-function pedirNombreCompleto() {
-    let ingreseNombre = prompt("Ingrese su nombre");
-    let ingreseApellido = prompt ("Ingrese su apellido");
-    let pNombreCompleto = ingreseNombre + " "+ ingreseApellido;
-    return pNombreCompleto;
-}
-function pedirEmail() {
-    let ingreseEmail = prompt("Ingrese su email (ejemplo@email.com)");
-    let pEmail = ingreseEmail;
-    return pEmail;
-}
-function gaurdarDatosCliente(pNombreCompleto, pEmail) {
-    datosCliente.push(pNombreCompleto);
-    datosCliente.push(pEmail);
+//Listado de Productos
+productosArray = []
+productosArray.push ( new Producto(1,"Buzo RBW", "XL", "Adidas", 6500));
+productosArray.push ( new Producto(2,"Buzo Black Red", "M", "Adidas", 6000));
+productosArray.push ( new Producto(3,"Buzo Three Stripes", "L", "Adidas", 5000));
+productosArray.push ( new Producto(4,"Buzo Goalkeeper", "L", "Adidas", 5500));
+productosArray.push ( new Producto(5,"Buzo Classic", "XL", "Adidas", 7000));
+
+for (const productoFor of productosArray)
+{
+    productoFor.sumaIva();
 }
 
-//VARIABLES 
-var productosAlm = [];
-var pIidCliente = 0;
-var iva = 1.21;
-var datosCliente = [pNombreCompleto, pEmail];
-var cliente = new BoxCLientContact(pNombreCompleto, pEmail);
+const buzosXL = productosArray.find(buzo => buzo === "XL");
+const buzosL = productosArray.find(buzo => buzo === "L");
+const buzosM = productosArray.find(buzo => buzo === "M");
 
-//const infoCliente = {nombre: pNombreCompleto, email: pEmail, direccion: "Falta"}
-
-//PRODUCTOS
-var prod1 = new Producto(1, "Campera Blanca", "Adidas", "L", 6000);
-var prod2 = new Producto(2, "Campera Negra", "Adidas", "XL", 6500);
-var prod3 = new Producto(3, "Campera Gris", "Puma", "M", 5000);
-
-var prod4 = new Producto(4, "Remera Blanca", "Nike", "L", 4000);
-var prod5 = new Producto(5, "Remera Negra", "Nike", "XL", 4500);
-var prod6 = new Producto(6, "Campera Gris", "Puma", "XXL", 3000);
-
-var prod7 = new Producto(7, "Gorra Blanca", "DC", "L", 3000);
-var prod8 = new Producto(8, "Gorra Negra", "DC", "M", 3500);
-var prod9 = new Producto(9, "Gorra Gris", "DC", "M", 2000);
-
-//ALGORITMO
-var pNombreCompleto = pedirNombreCompleto();
-var pEmail = pedirEmail();
-gaurdarDatosCliente(pNombreCompleto, pEmail);
-var textInfo1 = alert(cliente);
+const productosPromo = productosArray.map(producto => productoFor.precio * 0.85);
