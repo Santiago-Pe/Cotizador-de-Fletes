@@ -50,12 +50,14 @@ class BoxCLientContact{
 //do while o for, porque es una accion que la hace el cliente cada vez que realize
 //una compra nueva.
 
-var nombreCompleto = prompt("Ingrese su nombre completo");
-var email = prompt("ingrese su email (ejemplo@gmail.com)")
-const datosCliente = []
-
-gaurdarDatosCliente() 
+gaurdarDatosCliente(nombre, correo) 
 {
     datosCliente.push(nombreCompleto);
     datosCliente.push(email);
 }
+
+
+var nombreCompleto = prompt("Ingrese su nombre completo");
+var email = prompt("ingrese su email (ejemplo@gmail.com)")
+const datosCliente = []
+gaurdarDatosCliente(nombreCompleto, email);
