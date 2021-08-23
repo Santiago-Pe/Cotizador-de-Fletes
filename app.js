@@ -42,7 +42,7 @@ class ClienteTarjeta
 }
 //FUNCIONES
 //Datos personales
-function PedirNombreCliente()
+function PedirNombreCliente(nombre, apellido)
 {
     let pedirNombre = prompt("Ingresar nombre")
     let pedirApellido = prompt("Ingresar apellido")
@@ -94,7 +94,8 @@ var prod15 =  new Producto(4,"Gorra White", "L", "DC", 4000);
 
 var listadoProducto = [];
 
-let nombreCompleto = PedirNombreCliente();
+let nombre = PedirNombreCliente(nombre);
+let apellido = PedirNombreCliente(apellido);
 let emialCliente = PedirEmailCliente ();
 let direccionCliente = PedirDireccionCliente();
 
@@ -158,7 +159,11 @@ while(pushCarro != 0)
 
 let datosTarjeta = PedirDatosTarjeta();
 
-let clienteUs = new Cliente(nombreCompleto, emialCliente, direccionCliente, listadoProducto);
+let clienteUs = new Cliente(nombre, apellido, emialCliente, direccionCliente, listadoProducto);
 console.log(clienteUs);
-let clienteUsTj = new ClienteTarjeta(datosTarjeta.tj, datosTarjeta.tjNombre, datosTarjeta.tjNum16, datosTarjeta.tjVto, datosTarjeta.tjCod);
+// let clienteUsTj = new ClienteTarjeta(datosTarjeta.tj, datosTarjeta.tjNombre, datosTarjeta.tjNum16, datosTarjeta.tjVto, datosTarjeta.tjCod);
+// console.log(datosTarjeta);
+let clienteUsTj = new ClienteTarjeta(PedirDatosTarjeta(tj), 
+PedirDatosTarjeta(tjNombre), PedirDatosTarjeta(tjNum16), 
+PedirDatosTarjeta(tjVto), PedirDatosTarjeta(tjCod));
 console.log(clienteUsTj);
