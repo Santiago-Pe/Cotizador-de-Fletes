@@ -1,63 +1,70 @@
-//Aun no esta armado el algoritmo de procedimientos.
-//PRODUCTOS
+//Class
+class Remitente
+{
+    constructor(id1, nombre1, apellido1, telefono1)
+    {
+        this.id = id1.toUpperCase();
+        this.nombre = nombre1.toUpperCase();
+        this. apellido = apellido1.toUpperCase();
+        this.telefono = parseFloat(telefono1); 
+    }
+}
+class Receptor
+{
+    constructor(id2, nombre2, apellido2, telefono2)
+    {
+        this.id = id2.toUpperCase();
+        this.nombre = nombre2.toUpperCase();
+        this. apellido = apellido2.toUpperCase();
+        this.telefono = parseFloat(telefono2); 
+    }
+}
 class Producto
 {
-    constructor(id, nombre, talle, marca, precio)
+    constructor(nombre, cantidad, valor, peso)
     {
-        this.id = id
         this.nombre = nombre.toUpperCase();
-        this.talle = talle.toUpperCase();
-        this.marca = marca.toUpperCase();
-        this.precio = parseFloat(precio);
+        this.cantidad = parseInt(cantidad);
+        this.valor = parseFloat(valor);
+        this.peso = parseFloat(peso); 
     }
-    
-    sumaIva()
+}
+class Flete
+{
+    constructor(origen, destino, precio)
     {
-        this.precio = this.precio * 1.21;
+        this.origen = origen;
+        this.destino = destino;
+        this.precio = precio;
     }
 }
 
-//Listado de Productos
-productosArray = []
-productosArray.push ( new Producto(1,"Buzo RBW", "XL", "Adidas", 6500));
-productosArray.push ( new Producto(2,"Buzo Black Red", "M", "Adidas", 6000));
-productosArray.push ( new Producto(3,"Buzo Three Stripes", "L", "Adidas", 5000));
-productosArray.push ( new Producto(4,"Buzo Goalkeeper", "L", "Adidas", 5500));
-productosArray.push ( new Producto(5,"Buzo Classic", "XL", "Adidas", 7000));
+//Arrays
+let fletes = [] //Para que quede registrado todos los destinos
+let cliente = [] //Con el class Remitente.
 
-for (const productoFor of productosArray)
-{
-    productoFor.sumaIva();
-}
-
-const buzosXL = productosArray.find(buzo => buzo === "XL");
-const buzosL = productosArray.find(buzo => buzo === "L");
-const buzosM = productosArray.find(buzo => buzo === "M");
-
-const productosPromo = productosArray.map(productoFor => productoFor.precio * 0.85);
+//Functions
 
 
-//CLIENTES
-class BoxCLientContact{
-    constructor(id, nombreCompleto, email){
-    this.id = id;
-    this.nombreCompleto = nombreCompleto;
-    this.email = email;
-    }
-}
-//falta agregar las condiciones para que se cumplan nuestros requisitos de orden
-//primero apellido y luego apellido. Y poner esta accion dentro de una funcion 
-//do while o for, porque es una accion que la hace el cliente cada vez que realize
-//una compra nueva.
+//PROGRAMA PRINCIPAL
+//Arrays
+let fletes = [] //Para que quede registrado todos los destinos
+let cliente = [] //Con el class Remitente.
+//Variables
+let miFormRemitente = document.getElementsByClassName('formInfo');
+let nombreCliente = miFormRemitente.children[1];
+let apellidoCliente = miFormRemitente.children[3];
+let telCliente = miFormRemitente.children[5];
 
-gaurdarDatosCliente(nombre, correo) 
-{
-    datosCliente.push(nombreCompleto);
-    datosCliente.push(email);
-}
+let miFormReceptor = document.getElementsByClassName('formInfo2');
+let nombreCliente2 = miFormReceptor.children[1];
+let apellidoCliente2 = miFormReceptor.children[3];
+let telCliente2 = miFormReceptor.children[5];
+
+let miFormProd = document.getElementsByClassName('formInfo3');
+let producto = miFormProd.children[1];
+let cantidad = miFormProd.children[3];
+let valor = miFormProd.children[5];
+let peso = miFormProd.children[7];
 
 
-var nombreCompleto = prompt("Ingrese su nombre completo");
-var email = prompt("ingrese su email (ejemplo@gmail.com)")
-const datosCliente = []
-gaurdarDatosCliente(nombreCompleto, email);

@@ -42,22 +42,22 @@ class ClienteTarjeta
 }
 //FUNCIONES
 //Datos personales
-function PedirNombreCliente(nombre, apellido)
+function PedirNombreCliente()
 {
     let pedirNombre = prompt("Ingresar nombre")
+}
+function PedirApellidCliente()
+{
     let pedirApellido = prompt("Ingresar apellido")
-    return pedirApellido + pedirApellido;
 }
 function PedirEmailCliente()
 {
     let pedirEmail = prompt("Ingrese su email (ejemplo@gmail.com)");
-    return pedirEmail;
 }
 function PedirDireccionCliente()
 {
     let pedirDireccion = prompt("Ingrese su direccion (calle a 1234)")
     let pedirCP = parseInt(prompt("Ingrese su codigo postal"))
-    return pedirDireccion + pedirCP;
 }
 //Datos de tarjeta
 function PedirDatosTarjeta()
@@ -67,7 +67,7 @@ function PedirDatosTarjeta()
     let tjNum16 = prompt("Ingrese los 16 nros de la parte frontal");
     let tjVto = prompt("Ingrese fecha de vencimiento");
     let tjCod = prompt("Ingrese el codigo de 3 digitos de la parte de atras");
-    return tj + tjNombre + tjNum16 + tjVto + tjCod;
+    
 }
 
 
@@ -94,8 +94,8 @@ var prod15 =  new Producto(4,"Gorra White", "L", "DC", 4000);
 
 var listadoProducto = [];
 
-let nombre = PedirNombreCliente(nombre);
-let apellido = PedirNombreCliente(apellido);
+let nombre = PedirNombreCliente();
+let apellido = PedirApellidCliente();
 let emialCliente = PedirEmailCliente ();
 let direccionCliente = PedirDireccionCliente();
 
@@ -104,7 +104,7 @@ let pushCarro = parseInt(prompt("Ingrese del 1 al 5 para Buzos Adidas, el 6 al 9
 //Como hacer para mejorar este procesos. Para hacerlo mas especifico: idea, usando herramientas de arrays,
 //crear sub arrays de cada marca, y de ahi volver a pedir que ingrese, ya datos mas especificos. Por lo que 
 //se asemeja mas a la seleccion de productos.
-while(pushCarro != 0)
+while((pushCarro != 0) && (pushCarro < 16))
 {
     switch(pushCarro)
     {
