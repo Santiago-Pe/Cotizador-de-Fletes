@@ -44,9 +44,10 @@ let fletes = [] //Para que quede registrado todos los destinos
 let cliente = [] //Con el class Remitente.
 
 //Functions
-function calcularFlete()
+function calcularFlete(e)
 {
-
+    e.preventDefault();
+    var
 }
 function validarForm ()
 {
