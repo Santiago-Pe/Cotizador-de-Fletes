@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Formulario -->
     <div id="contenedorInfo">
+        <!-- Formulario del Remitente -->
         <div class="formRemitente">
             <h3>Datos del Remitente</h3>    
             <form method="GET" class="formInfo" >
@@ -19,6 +21,7 @@
                 <input type="number" name="telefono">
             </form>
         </div>
+        <!-- Formualrio del Receptor -->
         <div class="formReceptor">    
             <h3>Datos del Receptor</h3>
             <form method="GET" class="formInfo2" >
@@ -30,6 +33,7 @@
                 <input type="number" name="telefono">
             </form>
         </div>
+        <!-- Formulario del Producto -->
         <div class="formProducto">    
             <h3>Datos del Producto</h3>
             <form method="GET" class="formInfo3" >
@@ -38,26 +42,15 @@
                 <label for="cantidad">Cantidad de pallets:</label>
                 <input type="number" name="cantidad">
                 <label for="valor">Valor total:</label>
-                <input type="number" name="valor">
+                <input type="number" name="valor" id="costo">
                 <label for="peso">Peso total en kilos:</label>
                 <input type="number" name="peso">
             </form>
         </div> 
+        <!-- Formualrio del Envio -->
         <div class="formFlete">    
             <h3>Información de envio</h3>
             <form method="GET" class="formInfo" >
-                <div>
-                    <input type="radio" name="espacio">
-                    <label for="espacio">Camion completo</label>
-                </div>
-                <div>
-                    <input type="radio" name="espacio">
-                    <label for="espacio">Medio completo</label>
-                </div>  
-                <div>  
-                    <input type="radio" name="espacio">
-                    <label for="espacio">Un cuarto de camion</label>
-                </div>
                 <div>
                     <select name="destino" class="destino">
                         <option value="">Seleccione su destino</option>
@@ -83,18 +76,22 @@
                         <option value="Santa Cruz">Santa Cruz</option>
                         <option value="Santa Fe">Santa Fe</option>
                         <option value="Santiago del Estero">Santiago del Estero</option>
-                        <option value="Rosario">Rosario</option>
                         <option value="Tierra del Fuego">Tierra del Fuego</option>
                         <option value="Tucuman">Tucuman</option> -->
                     </select>
                     
                 </div>
+                <!-- Boton de Confirmar -->
+                <!-- Al confirmar, ver de realizar otra pregunta ya diciendo aceptar y ahi disparar el prespuesto armado -->
                 <div>
                     <button class="button">Confirmar</button>
                 </div>
             </form>
         </div>
+
+        <div class="cotizacion">
         <!--Aca se debera mostrar un "Presupuesto" con todos los datos y un boton de confirmar.--> 
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
