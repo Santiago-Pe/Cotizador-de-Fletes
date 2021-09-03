@@ -190,20 +190,18 @@ const iva = 1.21;
 const precioXkm = 140;
 
 //falta ver este tema, para la condicion del flete
-const camionCompleto = 1;
-const medioCamion = 0.8;
-const cuartoCamion = 0.6;
+// const camionCompleto = 1;
+// const medioCamion = 0.8;
+// const cuartoCamion = 0.6;
+const iva = 1.21;
+const precioXkm = 140;
 let datosOk = true;
 costo2 = calcularFlete();
 let precio = sumarIva();
 //Aca en la cantidad, puedo determinarla yo con un maximo de pallet y hacer una formula para determianr 
 //que cantidad de pallet representa el espacio a ocupar. VEEER
 
-
 //PROGRAMA PRINCIPAL
-//Arrays
-let fletes = [] //Para que quede registrado todos los destinos
-let cliente = [] //Con el class Remitente.
 //Variables
 //Formulario Informacion Cliente
 let miFormRemitente = document.getElementsByClassName('formInfo');

@@ -4,95 +4,154 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CotiFlet</title>
 </head>
 <body>
+    <!-- HEADER -->
+            <div id="header">
+                <h1>COTI FLET</h1>
+                <p>
+                    Somos <strong>Coti Flet</strong>, al servicio del cliente.
+                </p>
+                <p>
+                    Usa nuestra app para saber el costo de lo que quieras enviar, a cualquier provincia del país.
+                </p>
+            </div>
+    <!-- APLICACION -->
     <!-- Formulario -->
-    <div id="contenedorInfo">
-        <!-- Formulario del Remitente -->
-        <div class="formRemitente">
-            <h3>Datos del Remitente</h3>    
-            <form method="GET" class="formInfo" >
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre">
-                <label for="apellido">Apellido:</label>
-                <input type="text" name="apellido">
-                <label for="telefono">Télefono:</label>
-                <input type="number" name="telefono">
-            </form>
-        </div>
-        <!-- Formualrio del Receptor -->
-        <div class="formReceptor">    
-            <h3>Datos del Receptor</h3>
-            <form method="GET" class="formInfo2" >
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre">
-                <label for="apellido">Apellido:</label>
-                <input type="text" name="apellido">
-                <label for="telefono">Télefono:</label>
-                <input type="number" name="telefono">
-            </form>
-        </div>
-        <!-- Formulario del Producto -->
-        <div class="formProducto">    
-            <h3>Datos del Producto</h3>
-            <form method="GET" class="formInfo3" >
-                <label for="producto">Nombre del producto</label>
-                <input type="text" name="producto">
-                <label for="cantidad">Cantidad de pallets:</label>
-                <input type="number" name="cantidad">
-                <label for="valor">Valor total:</label>
-                <input type="number" name="valor" id="costo">
-                <label for="peso">Peso total en kilos:</label>
-                <input type="number" name="peso">
-            </form>
-        </div> 
-        <!-- Formualrio del Envio -->
-        <div class="formFlete">    
-            <h3>Información de envio</h3>
-            <form method="GET" class="formInfo" >
-                <div>
-                    <select name="destino" class="destino">
-                        <option value="">Seleccione su destino</option>
-                        <option value="BuenosAires" class="bsAs">Buenos Aires</option>
-                        <option value="Capital" class="capi">Capital</option>
-                        <option value="Catamarca" class="cata">Catamarca</option>
-                        <option value="Chaco" class="chaco">Chaco</option>
-                        <option value="Chubut" class="chub">Chubut</option>
-                        <option value="Cordoba" class="cordo">Cordoba</option>
-                        <option value="Corrientes" class="corri">Corrientes</option>
-                        <option value="EntreRios" class="entreR">Entre Rios</option>
-                        <option value="Formosa" class="formo">Formosa</option>
-                        <!-- <option value="Jujuy">Jujuy</option>
-                        <option value="LaPampa">La Pampa</option>
-                        <option value="LaRioja">La Rioja</option>
-                        <option value="Mendoza">Mendoza</option>
-                        <option value="Misiones">Misiones</option>
-                        <option value="Neuquen">Neuquen</option>
-                        <option value="Rio Negro">Rio Negro</option>
-                        <option value="Salta">Salta</option>
-                        <option value="San Juan">San Juan</option>
-                        <option value="San Luis">San Luis</option>
-                        <option value="Santa Cruz">Santa Cruz</option>
-                        <option value="Santa Fe">Santa Fe</option>
-                        <option value="Santiago del Estero">Santiago del Estero</option>
-                        <option value="Tierra del Fuego">Tierra del Fuego</option>
-                        <option value="Tucuman">Tucuman</option> -->
-                    </select>
-                    
-                </div>
-                <!-- Boton de Confirmar -->
-                <!-- Al confirmar, ver de realizar otra pregunta ya diciendo aceptar y ahi disparar el prespuesto armado -->
-                <div>
-                    <button class="button">Confirmar</button>
-                </div>
-            </form>
-        </div>
 
-        <div class="cotizacion">
+            <div id="contApp">
+    <!-- Formulario del Remitente -->
+                <div class="contForm">
+                    <div class="title2">
+                        <h3>Datos del Remitente</h3> 
+                    </div>
+                    <div class="formRemi">   
+                        <form method="GET" class="formInfo" >
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" name="apellido">
+                            <label for="telefono">Télefono:</label>
+                            <input type="number" name="telefono">
+                        </form>
+                    </div>
+                </div>
+    <!-- Formualrio del Receptor -->
+                <div class="contForm"> 
+                    <div class="title3">   
+                        <h3>Datos del Receptor</h3>
+                    </div>
+                    <div class="formRecp">
+                        <form method="GET" class="formInfo2" >
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" name="apellido">
+                            <label for="telefono">Télefono:</label>
+                            <input type="number" name="telefono">
+                        </form>
+                    </div>     
+                </div>
+    <!-- Formulario del Producto -->
+                <div class="contForm"> 
+                    <div class="title4">   
+                        <h3>Datos del Producto</h3>
+                    </div>
+                    <div class="formProd">
+                        <form method="GET" class="formInfo3" >
+                            <label for="producto">Nombre del producto</label>
+                            <input type="text" name="producto">
+                            <label for="cantidad">Cantidad de pallets:</label>
+                            <input type="number" name="cantidad">
+                            <label for="valor">Valor total:</label>
+                            <input type="number" name="valor" id="costo">
+                            <label for="peso">Peso total en kilos:</label>
+                            <input type="number" name="peso">
+                        </form>
+                    </div>
+                </div> 
+    <!-- Formualrio del Envio -->
+                <div class="contForm"> 
+                    <div class="title5">   
+                        <h3>Información de envio</h3>
+                    </div>
+                    <div class="formEnvio">    
+                        <form method="GET" class="formInfo" >
+                            <div>
+                                <select name="destino" class="destino">
+                                    <option value="">Seleccione su destino</option>
+                                    <option value="BuenosAires" class="bsAs">Buenos Aires</option>
+                                    <option value="Capital" class="capi">Capital</option>
+                                    <option value="Catamarca" class="cata">Catamarca</option>
+                                    <option value="Chaco" class="chaco">Chaco</option>
+                                    <option value="Chubut" class="chub">Chubut</option>
+                                    <option value="Cordoba" class="cordo">Cordoba</option>
+                                    <option value="Corrientes" class="corri">Corrientes</option>
+                                    <option value="EntreRios" class="entreR">Entre Rios</option>
+                                    <option value="Formosa" class="formo">Formosa</option>
+                                    <!-- <option value="Jujuy">Jujuy</option>
+                                    <option value="LaPampa">La Pampa</option>
+                                    <option value="LaRioja">La Rioja</option>
+                                    <option value="Mendoza">Mendoza</option>
+                                    <option value="Misiones">Misiones</option>
+                                    <option value="Neuquen">Neuquen</option>
+                                    <option value="Rio Negro">Rio Negro</option>
+                                    <option value="Salta">Salta</option>
+                                    <option value="San Juan">San Juan</option>
+                                    <option value="San Luis">San Luis</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Santa Fe">Santa Fe</option>
+                                    <option value="Santiago del Estero">Santiago del Estero</option>
+                                    <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                    <option value="Tucuman">Tucuman</option> -->
+                                </select>
+                            </div>
+    <!-- Boton de Confirmar -->
+    <!-- Al confirmar, ver de realizar otra pregunta ya diciendo aceptar y ahi disparar el prespuesto armado -->
+                            <div>
+                                <button class="button">Confirmar</button>
+                            </div>
+                        </form>
+                    </div>    
+                </div>
+                
+    <!--RESULTADO DE LA APP  -->
+                <div class="contCoti">
         <!--Aca se debera mostrar un "Presupuesto" con todos los datos y un boton de confirmar.--> 
-        </div>
-    </div>
+                </div>
+            </div>
+    <!-- FOOTER -->
+       <footer>
+            <div class="contFooter">
+                <div class="contContac">
+                    <h3>Contactanos!</h3>
+                        <div class="vta">
+                            <h4>Ventas</h4>
+                            <p>Tel: +54 9 341 227 8025</p>
+                            <p>emial: vta.cotiflet@gmail.com</p>
+                        </div>
+                        <div clas="adm">
+                            <h4>Administración</h4>
+                            <p>Tel: +54 9 341 897 5065</p>
+                            <p>emial: adm.cotiflet@gmail.com</p>
+                        </div>  
+                        <div class="log">  
+                            <h4>Logística</h4>
+                            <p>Tel: +54 9 341 326 0059</p>
+                            <p>emial: log.cotiflet@gmail.com</p>
+                        </div>
+                </div>
+                <div class="contMapa">
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.5973322792706!2d-60.58902128524982!3d-33.06706638532339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7a9a115f6eff1%3A0xe08a58172a3b41e7!2sParque%20Industrial%20Alvear!5e0!3m2!1ses-419!2sar!4v1630710176585!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="direc">
+                        <p>Parque Industrial Alvear, Lote industrial 15, Ruta Provincial 21, Alvear, Provincia de Santa Fe</p>
+                    </div>
+                </div>            
+            </div>
+       </footer>
     <script src="main.js"></script>
 </body>
 </html>
