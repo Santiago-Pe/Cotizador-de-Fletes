@@ -40,12 +40,40 @@ class Flete
 }
 
 //Arrays
-let fletes = [] //Para que quede registrado todos los destinos
-let cliente = [] //Con el class Remitente.
+let servicios = [] //Aca van datos de class = cliente y flete
 
 //Functions
 function calcularFlete(e)
 {
+    // Buscar forma mas corta de esto:
+    /*
+    if (document.geElementByClassName('.bsAs) && cantpalellet =< 3)
+    {
+        km= 400;
+        precioXKm = 160 * 0.20 * 1.2
+    }
+      if (document.geElementByClassName('.bsAs) && cantpalellet =< 6 )
+    {
+        km= 400;
+        precioXKm = 140 * 0.40 * 1.15
+    }
+        if (document.geElementByClassName('.bsAs) && cantpalellet =< 9 )
+    {
+        km= 400;
+        precioXKm = precioXKm = 160 * 0.60 * 1.1
+    }
+        if (document.geElementByClassName('.bsAs) && cantpalellet =< 12 )
+    {
+        km= 400;
+        precioXKm = precioXKm = 160 * 0.80 * 1.05
+
+    }
+        if (document.geElementByClassName('.bsAs) && cantpalellet =< 15 )
+    {
+        km= 400;
+        precioXKm = 160;
+    }
+    */
     e.preventDefault();
     var km = 0;
     var precioXKm = 140;
@@ -120,15 +148,16 @@ if ( producto == '' || cantidad == '' || valor == '' || peso == '')
 function agregarCliente ()
 {
     //Si confimra presupuesto enviar un email y sumar a mi array. Crear una nueva funcion para el push de fletes, y ver de que manera se puede hacer que aumente mi ID por cada vez que un client me confirme una cotizacion
-    fletes.push('Rosario', destino, precio);
-    cliente.push('1', nombreCliente, apellidoCliente, telCliente)
-}
+    
+    servicios.push('1', nombreCliente, apellidoCliente, telCliente, 'Rosario', destino, precio)
+}f
 function mostrarResuemn ()
 {
 
 }
 function agregarDom()
 {
+    //Usar Jquery
     let cotizacion = document.getElementsByClassName('cotizacion');
     cotizacion.innerHTML =  `<h2> Su presupuesto</h2>
     <h3> Datos del Remitente </h3>
@@ -154,7 +183,6 @@ function agregarDom()
 }
 function sumarIva()
 {
-    const iva = 1.21
     let costoIva = costo2 * iva;
     return costoIva;
 }
@@ -185,16 +213,12 @@ function sumarIva()
 // const santiagodelEstero = 830;
 // const tierradelFuego = 3170
 // const tucuman = 952;
-//Otras
-const iva = 1.21;
-const precioXkm = 140;
 
 //falta ver este tema, para la condicion del flete
 // const camionCompleto = 1;
 // const medioCamion = 0.8;
 // const cuartoCamion = 0.6;
 const iva = 1.21;
-const precioXkm = 140;
 let datosOk = true;
 costo2 = calcularFlete();
 let precio = sumarIva();

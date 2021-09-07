@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+    background-color: #caeef3;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+
+    height: auto;
+    width: auto;
+}
+
+/* HEADER */
+#header
+{
+ text-align: center;
+ font-size: 40px;
+}
+#header, p
+{
+    font-size: 30px;
+}
+/* APLICACION */
+#contApp
+{
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    flex-direction: space-around;
+    align-items: center;
+    
+}
+.contForm
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+    height: auto;
+    width: auto;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    padding: 2px;
+
+}
+.formRemi, form
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    margin-top: 0.75rem;
+
+}
+
+/* FOOTER */
+
+.contFooter
+{
+    text-align: center;
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: row;
+}
+.contac
+{
+font-size: 10px;
+font-weight: 400;
+
+}
