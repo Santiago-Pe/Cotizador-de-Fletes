@@ -38,9 +38,7 @@ class Flete
         this.precio = precio;
     }
 }
-
-//Arrays
-let servicios = [] //Aca van datos de class = cliente y flete
+//sumamos un calss de prespuesto que contega info mezcladad de los class anteriores?
 
 //Functions
 function calcularFlete(e)
@@ -117,8 +115,7 @@ function calcularFlete(e)
     costo = precioXKm * km;
     return costo;
 }
-//revisar
-function validarForm ()
+function validarForm () //revisar
 {
     // Remitente
 if ( nombreCliente == '' || apellidoCliente == '' ||telCliente == '')
@@ -145,17 +142,17 @@ if ( producto == '' || cantidad == '' || valor == '' || peso == '')
 }
 
 }
-function agregarCliente ()
+function agregarRto () //revisar, ver de guardar en un localstorage.
 {
     //Si confimra presupuesto enviar un email y sumar a mi array. Crear una nueva funcion para el push de fletes, y ver de que manera se puede hacer que aumente mi ID por cada vez que un client me confirme una cotizacion
     
-    servicios.push('1', nombreCliente, apellidoCliente, telCliente, 'Rosario', destino, precio)
-}f
-function mostrarResuemn ()
+    presupuesto.push('1', nombreCliente, apellidoCliente, telCliente, 'Rosario', destino, precio)
+}
+function mostrarResuemn () // hacer
 {
 
 }
-function agregarDom()
+function agregarDom() // rehacer con jquery
 {
     //Usar Jquery
     let cotizacion = document.getElementsByClassName('cotizacion');
@@ -181,52 +178,31 @@ function agregarDom()
     <p><strong> + IVA : </strong> ${precio}</p> 
     <button class = "btnAceptar"> Aceptar </buttoon>` //falta algo. Revisar;
 }
-function sumarIva()
+function sumarIva() //hacer
 {
-    let costoIva = costo2 * iva;
-    return costoIva;
-}
-//Constantes 
-//(Provincias con distancia a rosario.)
-// const buenosAires = 400;
-// const capital = 300;
-// const catamarca = 830;
-// const chaco = 720;
-// const chubut = 1460; 
-// const cordoba = 400;
-// const corrientes = 740;
-// const entreRios = 200;
-// const formosa = 890;
-// const jujuy = 1200;
-// const laPampa = 620;
-// const laaRioja = 860;
-// const mendoza = 870;
-// const misiones = 1060;
-// const neuquen = 1150;
-// const rioNegro =1020;
-// const salta = 1170;
-// const sanJuan = 980;
-// const sanLuis = 610;
-// const santaCruz = 2600;
-// const santaFe = 180;
-// const rosario = 100;
-// const santiagodelEstero = 830;
-// const tierradelFuego = 3170
-// const tucuman = 952;
 
-//falta ver este tema, para la condicion del flete
-// const camionCompleto = 1;
-// const medioCamion = 0.8;
-// const cuartoCamion = 0.6;
+}
+function sumarSeguro() //hacer
+{
+
+}
+function sumarEmbalaje() //hacer
+{
+
+}
+
+
+
+
+//Arrays
+let presupuesto = [] //Aca van datos de class = cliente y flete que generaran un prespuesto/rto
+
+//Variables y constantes
 const iva = 1.21;
 let datosOk = true;
-costo2 = calcularFlete();
-let precio = sumarIva();
-//Aca en la cantidad, puedo determinarla yo con un maximo de pallet y hacer una formula para determianr 
-//que cantidad de pallet representa el espacio a ocupar. VEEER
 
 //PROGRAMA PRINCIPAL
-//Variables
+
 //Formulario Informacion Cliente
 let miFormRemitente = document.getElementsByClassName('formInfo');
 let nombreCliente = miFormRemitente.children[1];
@@ -247,7 +223,6 @@ let valor = miFormProd.children[5];
 let peso = miFormProd.children[7];
 
 //Formulario de Envio
-const destinos = querySelector('.destino');
-destinos.addEventListenner('change') 
 
+//EVENTOS
 
