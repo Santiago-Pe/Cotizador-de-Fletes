@@ -41,114 +41,41 @@ class Flete
 //sumamos un calss de prespuesto que contega info mezcladad de los class anteriores?
 
 //Functions
-function calcularFlete(e)
-{
-    // Buscar forma mas corta de esto:
-    /*
-    if (document.geElementByClassName('.bsAs) && cantpalellet =< 3)
-    {
-        km= 400;
-        precioXKm = 160 * 0.20 * 1.2
-    }
-      if (document.geElementByClassName('.bsAs) && cantpalellet =< 6 )
-    {
-        km= 400;
-        precioXKm = 140 * 0.40 * 1.15
-    }
-        if (document.geElementByClassName('.bsAs) && cantpalellet =< 9 )
-    {
-        km= 400;
-        precioXKm = precioXKm = 160 * 0.60 * 1.1
-    }
-        if (document.geElementByClassName('.bsAs) && cantpalellet =< 12 )
-    {
-        km= 400;
-        precioXKm = precioXKm = 160 * 0.80 * 1.05
-
-    }
-        if (document.geElementByClassName('.bsAs) && cantpalellet =< 15 )
-    {
-        km= 400;
-        precioXKm = 160;
-    }
-    */
-    e.preventDefault();
-    var km = 0;
-    var precioXKm = 140;
-    if (document.getElementsByClassName('.bsAs'))
-    {
-        km = 400;
-    }
-    if (document.getElementsByClassName('.capi'))
-    {
-        km = 300;
-    }
-    if (document.getElementsByClassName('.cata'))
-    {
-        km = 830;
-    }
-    if (document.getElementsByClassName('.chaco'))
-    {
-        km = 720;
-    }
-    if (document.getElementsByClassName('.chub'))
-    {
-        km = 1460;
-    }
-    if (document.getElementsByClassName('.cordo'))
-    {
-        km = 400;
-    }
-    if (document.getElementsByClassName('.corri'))
-    {
-        km = 740;
-    }
-    if (document.getElementsByClassName('.entreR'))
-    {
-        km = 200;
-    }
-    if (document.getElementsByClassName('.formo'))
-    {
-        km = 890;
-    }
-    //ampliar si funciona
-    costo = precioXKm * km;
-    return costo;
-}
 function validarForm () //revisar
 {
     // Remitente
-if ( nombreCliente == '' || apellidoCliente == '' ||telCliente == '')
+if ( nombreCliente == '' || apellidoCliente == '' || telCliente == '' || emailCliente == '')
 {
     alert = ('Por favor complete bien los datos del Remitente')
     datosOk = false;
 }
 // Receptor
-if ( nombreCliente2 == '' || apellidoCliente2 == '' ||telCliente2 == '')
+else if ( nombreCliente2 == '' || apellidoCliente2 == '' ||telCliente2 == '' || emailCliente2 == '')
 {
     alert = ('Por favor complete bien los datos del Destinatario')
     datosOk = false;
 }
 // Flete
-if ( producto == '' || cantidad == '' || valor == '' || peso == '')
+else if ( producto == '' || cantidad == '' || valor == '' || peso == '')
 {
     alert = ('Por favor complete bien los datos del Envio')
     datosOk = false;
 }
 //Condciones de compra
-if ( producto == '' || cantidad == '' || valor == '' || peso == '')
+//aca usar else if para verificar que se selecciono algo, pero como?
+else
 {
-  //Se tiene que seleccionar algo si o si.
+    console.log("Todos los campos estan bien completados")
 }
 
 }
-function agregarRto () //revisar, ver de guardar en un localstorage.
+function agregarArrayRto () //revisar, ver de guardar en un localstorage.
 {
     //Si confimra presupuesto enviar un email y sumar a mi array. Crear una nueva funcion para el push de fletes, y ver de que manera se puede hacer que aumente mi ID por cada vez que un client me confirme una cotizacion
     
     presupuesto.push('1', nombreCliente, apellidoCliente, telCliente, 'Rosario', destino, precio)
 }
-function mostrarResuemn () // hacer
+function mostrarRemito () // hacer
 {
 
 }
@@ -178,19 +105,103 @@ function agregarDom() // rehacer con jquery
     <p><strong> + IVA : </strong> ${precio}</p> 
     <button class = "btnAceptar"> Aceptar </buttoon>` //falta algo. Revisar;
 }
-function sumarIva() //hacer
+function calcularFlete(e)
 {
-
+    prevent.Default();
+    if(cantPallet <= 5)
+    {
+        switch (destino)
+        { 
+            case ".bsAs":
+            km4 * 400
+            break;
+            case ".capi":
+            km4 * 300
+            break;
+            case ".cata":
+            km4 * 900
+            break;
+            case ".chaco":
+            km4 * 300
+            break;
+        }
+    }
+    else if(cantPallet <= 10)
+    {
+         switch (destino)
+        { 
+            case ".bsAs":
+            km3 * 400
+            break;
+            case ".capi":
+            km3 * 300
+            break;
+            case ".cata":
+            km3 * 900
+            break;
+            case ".chaco":
+            km3 * 300
+            break;
+        }
+    }
+    else if(cantPallet <= 15)
+    {
+         switch (destino)
+        { 
+            case ".bsAs":
+            km2 * 400
+            break;
+            case ".capi":
+            km2 * 300
+            break;
+            case ".cata":
+            km2 * 900
+            break;
+            case ".chaco":
+            km2 * 300
+            break;
+        }
+    }
+    else if(cantPallet <= 20)
+    {
+         switch (destino)
+        { 
+            case ".bsAs":
+            km1 * 400
+            break;
+            case ".capi":
+            km1 * 300
+            break;
+            case ".cata":
+            km1 * 900
+            break;
+            case ".chaco":
+            km1 * 300
+            break;
+        }
+    }
+    else
+    {
+        alert("Su pedido requiere mas de 1 equipo completo. Por favor comunicarse con el sector ventas")
+    }
+       
 }
-function sumarSeguro() //hacer
+function sumarIva()
 {
-
+    let operacion1 = (costo * 21) / 100;
 }
-function sumarEmbalaje() //hacer
+function sumarSeguro()
 {
-
+ let operacion2 = (costo * 15) / 100;
 }
-
+function sumarEmbalaje()
+{
+ operacion3 = (costo * 10) / 100;
+}
+function sumaTotal()
+{
+    let operacion4 = costo + costoIva +costoSeguro + costoEmba; 
+}
 
 
 
@@ -198,7 +209,6 @@ function sumarEmbalaje() //hacer
 let presupuesto = [] //Aca van datos de class = cliente y flete que generaran un prespuesto/rto
 
 //Variables y constantes
-const iva = 1.21;
 let datosOk = true;
 
 //PROGRAMA PRINCIPAL
@@ -208,21 +218,41 @@ let miFormRemitente = document.getElementsByClassName('formInfo');
 let nombreCliente = miFormRemitente.children[1];
 let apellidoCliente = miFormRemitente.children[3];
 let telCliente = miFormRemitente.children[5];
+let emailCliente = miFormRemitente.children[7];
 
 //Formulario Informacio Receptor
 let miFormReceptor = document.getElementsByClassName('formInfo2');
 let nombreCliente2 = miFormReceptor.children[1];
 let apellidoCliente2 = miFormReceptor.children[3];
 let telCliente2 = miFormReceptor.children[5];
+let emailCliente2 = miFormRemitente.children[7];
 
 //Formualio de Flete
 let miFormProd = document.getElementsByClassName('formInfo3');
 let producto = miFormProd.children[1];
-let cantidad = miFormProd.children[3];
+let cantPallet = miFormProd.children[3];
 let valor = miFormProd.children[5];
 let peso = miFormProd.children[7];
 
 //Formulario de Envio
+let miFormInfo = document.getElementsByClassName('destino');
 
-//EVENTOS
+//ALGORITMO
+//1- La persona ingresa datos de remitente, receptor, producto y destino.
+validarForm();
+//2- cuando haga click en el button "cotizar", ejecutara todos los calculos.
+calcularFlete();
+sumarIva();
+sumarSeguro();
+sumarEmbalaje();
+//3- Luego volcara toda la informacion en un rto de html creado en js
+agregarDom(); //agrega al html.
+mostrarRemito(); // le da un efecto y un estilo al verlo.
+//4- una vez que confirme y acepta el presupuesto, dara click en confirmar
+agregarArrayRto(); //lo agrega a un  (ver si lo pone en un array antes o no)
+//aca iria una funcion que lo guarde en un localStorage o en un ajax.
+// luego un msj que finalizaria todo enviandole un correo a la persona diciendo "que se contactaran con el por emial o telefono"
+
+
+
 

@@ -11,18 +11,32 @@
 <body>
     <!-- HEADER -->
             <div id="header">
-                <h1>COTI FLET</h1>
-                <p>
-                    Somos <strong>Coti Flet</strong>, al servicio del cliente.
-                </p>
-                <p>
-                    Usa nuestra app para saber el costo de lo que quieras enviar, a cualquier provincia del país.
-                </p>
+                <div>
+                    <p>Servicios</p>
+                    <h1><strong>COTI FLET</strong> </h1>
+                </div>  
             </div>
     <!-- IMAGENES Y TEXTO DE MARKETING -->
-    <div>
-
+    <div class="textoUno">
+        <img src="img/img3.png" alt="">
+        <p>
+            Trabaja con nosotros para mejorar tus tiempos de entrega.  
+        </p>
     </div>
+    <div class="textoDos">
+        <img src="img/img2.png" alt="">
+        <p>
+            Contamos con una amplia flota de camiones y con el personal más capacitado para realziar envios a todo el país.
+        </p>
+    </div>
+    <div class="textoTres">
+        <img src="img/img1.png" alt="">
+        <p>
+            Contamos con un cotizador express donde podrás calcular el costo total y real de lo que saldrá enviar el producto.
+        </p>
+    </div>
+    
+    <!-- ¿Ponemos un button que depliegue la app ("coti flet") -->
     <!-- APLICACION -->
     <!-- Formulario -->
 
@@ -40,6 +54,8 @@
                             <input type="text" name="apellido">
                             <label for="telefono">Télefono:</label>
                             <input type="number" name="telefono">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email">
                         </form>
                     </div>
                 </div>
@@ -56,6 +72,8 @@
                             <input type="text" name="apellido">
                             <label for="telefono">Télefono:</label>
                             <input type="number" name="telefono">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email">
                         </form>
                     </div>     
                 </div>
@@ -72,7 +90,7 @@
                             <input type="number" name="cantidad">
                             <label for="valor">Valor total:</label>
                             <input type="number" name="valor" id="costo">
-                            <label for="peso">Peso total en kilos:</label>
+                            <label for="peso">Peso total (en toneladas):</label>
                             <input type="number" name="peso">
                         </form>
                     </div>
@@ -80,7 +98,7 @@
     <!-- Formualrio del Envio -->
                 <div class="contForm"> 
                     <div class="title5">   
-                        <h3>Información de envio</h3>
+                        <h3>Destino</h3>
                     </div>
                     <div class="formEnvio">    
                         <form method="POST" class="formInfo" >
