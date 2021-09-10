@@ -3,11 +3,7 @@
 	margin: 0;
 	padding: 0;
     box-sizing: border-box;
-    background-color: #caeef3;
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
-
-    height: auto;
-    width: auto;
 }
 
 /* HEADER */
@@ -15,10 +11,118 @@
 {
  text-align: center;
  font-size: 40px;
+ font-weight: 600;
+
+ background-color: rgb(221, 147, 36);
+ width: 100%;
+ height:auto;
 }
 #header, p
 {
+    font-size: 35px;
+    font-weight:600;
+}
+/* IMAGENES Y TEXTO DE MARKETING */
+.mkt
+{
+    display: flex;
+    flex-direction: row;
+}
+.seccion1
+{
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+}
+.bloqueUno
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.textoUno
+{    
+    text-align: center;
     font-size: 30px;
+    font-weight: 500;
+}
+.imgUno
+{
+    width: 200px;
+    height: 200px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.bloqueDos
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.textoDos
+{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+}
+.imgDos
+{
+    width: 200px;
+    height: 200px;
+
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.seccion2
+{
+background-color: rgb(209, 199, 199);
+
+display: flex;
+justify-content: center;
+}
+.bloqueTres
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center
+}
+.textoTres
+{
+    text-align: center;
+    align-content: space-around;
+    align-items: center;
+}
+.imgUno
+{
+    width: 500px;
+    height: 500px;
+}
+
+.btnUno
+{
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: center;
+
+}
+.btnCotiFlet
+{
+    width: 150px;
+    height: 40px;
+
+    border-radius: 4%;
+
+    background-color: black;
+    color: rgb(221, 147, 36);
+
+    font-size: 20px;
+    font-weight: 600;
+   
 }
 /* APLICACION */
 #contApp
