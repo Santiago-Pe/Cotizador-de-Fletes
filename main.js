@@ -1,3 +1,4 @@
+console.log("lo que sea")
 //Class
 class Remitente
 {
@@ -233,22 +234,29 @@ function reiniciarPage() //hacer
 
 
 
-//Arrays
+//ARRAYS
 let presupuesto = [] 
 //Aca van los datos que vamos a usar el el rto (clientee1, cliente2, producto, felte y precios.)
 
-//Variables y constantes
-let datosOk = true; //preguntar que onda, usamos esto porque estaba en la clase.
+//VARIABLES Y CONSTANTES
 
+let datosOk = true; //preguntar que onda, usamos esto porque estaba en la clase.
+//Precio x km segun la capacidad del camion
+let km4 = 90
+let km3 = 100
+let km2 = 120
+let km1 = 140
 //PROGRAMA PRINCIPAL
 
 //Formulario Informacion Cliente
 let miFormRemitente = document.getElementsByClassName('formInfo');
+console.log(miFormRemitente)
 let nombreCliente = miFormRemitente.children[1];
 let apellidoCliente = miFormRemitente.children[3];
 let telCliente = parseInt(miFormRemitente.children[5]);
 let emailCliente = miFormRemitente.children[7];
 
+ 
 //Formulario Informacio Receptor
 let miFormReceptor = document.getElementsByClassName('formInfo2');
 let nombreCliente2 = miFormReceptor.children[1];
@@ -269,28 +277,28 @@ let miFormInfo = document.getElementsByClassName('destino');
 
 
 
-//ALGORITMO (eventos)
-//1- Mostrar app con JS
-mostrarApp();
-//2- La persona ingresa datos de remitente, receptor, producto y destino.
-validarForm();
-//3- Agrego al array de "presupuesto"
-agregArrayPresp();
-//4- cuando haga click en el button "cotizar", ejecutara todos los calculos.
-calcularFlete();
-sumarIva();
-sumarSeguro();
-sumarEmbalaje();
-//5- guardo todo en un localstorage
-guardarSession();
-//6- traigo la info del local storage
-traerSession();
-//7- Luego volcara toda la informacion en un rto de html creado en js
-agregarDom(); //agrega al html.
-//8- Con la animacion de jquey le damos estio y efecto a la accion "mostrar prespuesto"
-mostrarRemito();
-//9- cuando se de click en el boton confimrar, se reiniciara todo  para poder volver a cotizar desde 0.
-reiniciarPage();
+// //ALGORITMO (eventos)
+// //1- Mostrar app con JS
+// mostrarApp();
+// //2- La persona ingresa datos de remitente, receptor, producto y destino.
+// validarForm();
+// //3- Agrego al array de "presupuesto"
+// agregArrayPresp();
+// //4- cuando haga click en el button "cotizar", ejecutara todos los calculos.
+// calcularFlete();
+// sumarIva();
+// sumarSeguro();
+// sumarEmbalaje();
+// //5- guardo todo en un localstorage
+// guardarSession();
+// //6- traigo la info del local storage
+// traerSession();
+// //7- Luego volcara toda la informacion en un rto de html creado en js
+// agregarDom(); //agrega al html.
+// //8- Con la animacion de jquey le damos estio y efecto a la accion "mostrar prespuesto"
+// mostrarRemito();
+// //9- cuando se de click en el boton confimrar, se reiniciara todo  para poder volver a cotizar desde 0.
+// reiniciarPage();
 
 
 

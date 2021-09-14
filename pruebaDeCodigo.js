@@ -18,3 +18,6 @@ arrayDeseado =
  y de ahi pasarlo al rto de html
  
 */
+
+
+//DATOS ESTATICOS EN MI JSON ESTATICO
