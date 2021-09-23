@@ -45,31 +45,76 @@
     <div class="btnBox">
     <button class="btnApp">COTI FLET</button>
     </div>
-    <!-- ¿Ponemos un button que depliegue la app ("coti flet") -->
     <!-- APLICACION -->
     <!-- Formulario -->
 
             <div id="contApp">
     <!-- Formulario del Remitente -->
                 <div class="contenedoForm">
-                    <div class="title2">
-                        <h3>Datos del Remitente</h3> 
-                    </div>
-                    <div class="formRemitente">   
-                        <form method="POST" id="idFormRemitente" >
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" name="nombre" >
-                            <label for="apellido">Apellido:</label>
-                            <input type="text" name="apellido">
-                            <label for="telefono">Télefono:</label>
-                            <input type="number" name="telefono">
-                            <label for="email">Email:</label>
-                            <input type="email" name="email">
+                        <form method="POST" id="idFormApp" >
+                                <h3>Remitente</h3>
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" name="nombreRemitente" >
+                                    <label for="apellido">Apellido:</label>
+                                    <input type="text" name="apellidoRemitente">
+                                    <label for="telefono">Télefono:</label>
+                                    <input type="number" name="telefonoRemitente">
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="emailRemitente">    
+
+                                <h3>Receptor</h3>
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" name="nombreReceptor">
+                                    <label for="apellido">Apellido:</label>
+                                    <input type="text" name="apellidoReceptor">
+                                    <label for="telefono">Télefono:</label>
+                                    <input type="number" name="telefonoReceptor">
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="emailReceptor">   
+
+                                <h3>¿Que se envia?</h3>
+                                    <label for="producto">Nombre del producto</label>
+                                    <input type="text" name="producto">
+                                    <label for="cantidad">Cantidad de pallet:</label>
+                                    <input type="number" name="cantidad">
+                                    <label for="valor">Valor total:</label>
+                                    <input type="number" name="valor" id="costo">
+                                    <label for="peso">Peso total (en toneladas):</label>
+                                    <input type="number" name="peso">
+
+                                    <select name="destino" class="destino">
+                                        <option value="">Seleccione su destino</option>
+                                        <option value="CABA, BA" >CABA, BA</option>
+                                        <option value="La Plata, BA">La Plata, BA</option>
+                                        <option value="San Fernando del Valle de Catamarca, CA">San Fernando del Valle de Catamarca, CA</option>
+                                        <option value="Resistencia, CH">Resistencia, CH</option>
+                                        <option value="Rawson, CT">Rawson, CT</option>
+                                        <option value="Córdoba, CBA">Córdoba, CBA</option>
+                                        <option value="Corrientes, CR" >Corrientes, CR</option>
+                                        <option value="Paraná, ER">Paraná, ER</option>
+                                        <!-- <option value="Formosa" class="formo">Formosa</option>
+                                        <option value="Jujuy">Jujuy</option>
+                                        <option value="LaPampa">La Pampa</option>
+                                        <option value="LaRioja">La Rioja</option>
+                                        <option value="Mendoza">Mendoza</option>
+                                        <option value="Misiones">Misiones</option>
+                                        <option value="Neuquen">Neuquen</option>
+                                        <option value="Rio Negro">Rio Negro</option>
+                                        <option value="Salta">Salta</option>
+                                        <option value="San Juan">San Juan</option>
+                                        <option value="San Luis">San Luis</option>
+                                        <option value="Santa Cruz">Santa Cruz</option>
+                                        <option value="Santa Fe">Santa Fe</option>
+                                        <option value="Santiago del Estero">Santiago del Estero</option>
+                                        <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                        <option value="Tucuman">Tucuman</option> -->
+                                    </select>
+
+                            
                             <div class="btnBoxSubmit">                         
                                 <button id="idBtnSubmit" class="btnSubmit">Cotizar</button>
                             </div>
                         </form>
-                    </div>
                 </div>
     <!-- Formualrio del Receptor -->
                 <!-- <div class="contForm"> 
