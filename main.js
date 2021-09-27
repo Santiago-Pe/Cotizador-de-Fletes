@@ -36,46 +36,46 @@ function mostrarOcultarApp()
 //3) Validacion de los datos ingresados
 function validarFormulario()
 {
-    debugger
-    nombreRemitente = formApp.children[2].value;
-    apellidoRemitente = formApp.children[4].value;
-    telefonoRemitente = formApp.children[6].value;
-    emailRemitente = formApp.children[8].value;
+    
+    nombreRemitente = formApp.children[1].value;
+    apellidoRemitente = formApp.children[2].value;
+    telefonoRemitente = formApp.children[3].value;
+    emailRemitente = formApp.children[4].value;
 
-    nombreReceptor = formApp.children[11].value;
-    apellidoReceptor = formApp.children[13].value;
-    telefonoReceptor = formApp.children[15].value;
-    emailReceptor = formApp.children[17].value;
+    nombreReceptor = formApp.children[6].value;
+    apellidoReceptor = formApp.children[7].value;
+    telefonoReceptor = formApp.children[8].value;
+    emailReceptor = formApp.children[9].value;
 
-    nombreProducto = formApp.children[20].value;
-    cantidadPallet = formApp.children[22].value;
-    valorProducto = formApp.children[24].value;
-    pesoProducto = formApp.children[26].value;
-
-
-
-    //  Remitente
-    if ( nombreRemitente === '' || apellidoRemitente === '' || telefonoRemitente === '' || emailRemitente === '')
+    nombreProducto = formApp.children[11].value;
+    cantidadPallet = formApp.children[12].value;
+    valorProducto = formApp.children[13].value;
+    pesoProducto = formApp.children[14].value;
+    
+    if ((nombreRemitente == "") || (apellidoRemitente == "") || (telefonoRemitente == "") || (emailRemitente == ""))
     {
-        alert = ('Por favor complete bien los datos del Remitente')
-        datosOk = false;
+        alert("Por favor complete todos los campos del 'Remitente'.")
+        return
     }
-    else if (  nombreReceptor === '' || apellidoReceptor === '' || telefonoReceptor === '' || emailReceptor === '')
+    else if  ((nombreReceptor == "") || (apellidoReceptor == "") || (telefonoReceptor == "") || (emailReceptor == ""))
     {
-        alert = ('Por favor complete bien los datos del Receptor')
-        datosOk = false;
+        alert("Por favor complete todos los campos del 'Receptor'.")
+        return
     }
-    else if (  nombreProducto === '' || cantidadPallet === '' || valorProducto === '' || pesoProducto === '')
+    else if((nombreProducto == "") || (cantidadPallet == "") || (valorProducto == "") || (pesoProducto == ""))
     {
-        alert = ('Por favor complete bien los datos del Receptor')
-        datosOk = false;
+        alert("Por favor complete todos los campos de 'Producto a Enviar'.")
+        return
     }
-    else
+    else if ((cantidadPallet > 20) || (pesoProducto > 28))
     {
-        console.log("los datos fueron bien ingresados")
-        datosOk = true;
+        alert("Maximo 20 pallet o 28 tn. Usted requiere más de 1 equipo. Por favor contactarse con Logística.")
     }
-
+    else if (destino.value == "")
+    {
+        alert("Por favor elija un destino.")
+    }
+ // 
 }
 function calcularEnvio()
 {
@@ -227,44 +227,213 @@ function sumaCostoTotal()
 }
 function agregarAlDom()
 {
-    contenedorCotizacion.innerHTML =    `<h3> Cotizacion</h3>
-                                        <h4> Remitente</h4>
-                                        <p><strong> Nombre : </strong> ${nombreRemitente}</p>
-                                        <p><strong> Apellido : </strong> ${apellidoRemitente}</p>
-                                        <p><strong> Teléfono : </strong> ${telefonoRemitente}</p>
-                                        <p><strong> Email : </strong> ${emailRemitente}</p>
+    contenedorCotizacion.innerHTML =   
+        `<div class= "contenedorCotiDom">
+            <div class ="titleCotizacion">
+                <h3>Cotización</h3>
+            </div>
+            <hr>
+            <div class="superior">
+                <div class = "text">
+                    <h4 class ="subTitleC">Datos Remitente</h4>
+                    <p><strong>Nombre:</strong> ${nombreRemitente}</p>
+                    <p><strong>Apellido:</strong> ${telefonoRemitente}</p>
+                    <p><strong>Télefono:</strong> ${telefonoRemitente}</p>
+                    <p><strong>Email:</strong> ${emailRemitente} </p>
+                </div>
+                <div class = "text">
+                    <h4 class ="subTitleC">Datos Receptor</h4>
+                    <p><strong>Nombre:</strong> ${nombreReceptor}</p>
+                    <p><strong>Apellido:</strong> ${apellidoReceptor}</p>
+                    <p><strong>Télefono:</strong> ${telefonoReceptor}</p>
+                    <p><strong>Email:</strong> ${emailReceptor}</p>
+                </div>
+            </div>
+            <hr> 
+            <div class="medio">   
+                <div class = "text">
+                    <h4 class ="subTitleC"> Datos del producto a enviar</h4>
+                    <p><strong>Nombre producto:</strong> ${nombreProducto}</p>
+                    <p><strong>Cantidad de pallet:</strong> ${cantidadPallet}</p>
+                    <p><strong>Valor del producto:</strong> $${valorProducto}</p>
+                    <p><strong>Peso:</strong> ${pesoProducto}tn.</p>
+                </div>
+                <div class = "text">
+                    <h4 class ="subTitleC">Detalle de envio</h4>
+                    <p><strong>Origen:</strong> Rosario, SF.</p>
+                    <p><strong>Destino:</strong> ${destino.value}</p>
+                </div>
+            </div>
+            <hr> 
+            <div class="final">   
+                <div class = "text">
+                    <h4 class ="subTitleC">Detalles de Costo</h4>
+                    <p><strong>Costo de envio:</strong> $${costoEnvio}</p>
+                    <p><strong>Iva 21%:</strong> $${iva}</p>
+                    <p><strong>Seguro de envio:</strong> $${seguroProducto}</p>
+                </div>
+                <div class = "text">
+                    <p class= "textoFinal"><strong>Costo total:</strong> $${costoTotal}</p>
+                </div>
+            </div>
+        </div>
+        <div class= "btnConfirmarBox">
+            <button class="btnConfirmar">Confirmar</button>
+        </div>`;
 
-                                        <h4> Receptor</h4>
-                                        <p><strong> Nombre : </strong> ${nombreReceptor}</p>
-                                        <p><strong> Apellido : </strong> ${apellidoReceptor}</p>
-                                        <p><strong> Teléfono : </strong> ${telefonoReceptor}</p>
-                                        <p><strong> Email : </strong> ${emailReceptor}</p>
+    $(".contenedorCotiDom").css(
+        {   
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "flex-direction": "row",
+            "flex-wrap": "wrap",
+            "justify-content": "center",
 
-                                        <h4> Datos del producto a enviar </h4>
-                                        <p><strong> Nombre del producto : </strong> ${nombreProducto}</p>
-                                        <p><strong> Cantidad de pallet : </strong> ${cantidadPallet}</p>
-                                        <p><strong> Valor del producto : </strong> $${valorProducto}</p>
-                                        <p><strong> Peso en TN : </strong> ${pesoProducto}tn.</p>
+            "width": "auto",
+            "margin": "2rem",
+            "padding": "1rem",
 
-                                        <h4> Detalle de Envio </h4>
-                                        <p><strong>Origen:</strong> Rosario, Santa Fe.</p>
-                                        <p><strong>Destino:</strong> ${destino.value} </p>
+            "border-radius": "10px",
+            "background-color": " rgb(240, 205, 152)"
+        }
+    );
+    $("hr").css(
+        {
+            "border": "0.2px solid black",
 
-                                        <h4> Detalle de Costos </h4>
-                                        <p><strong> Costo de envio: </strong>$${costoEnvio}</p>
-                                        <p><strong> Iva 21%: </strong> $${iva}</p>
-                                        <p><strong> Seguro de envio: </strong> $${seguroProducto}</p>
-                                        <p><strong> Costo total: </strong>$${costoTotal}</p>
-                                        `;
+            "width": "100%",
+
+            "margin-top": "0.5rem",
+            "margin-bottom": "0.5rem"
+        }
+    );
+    $(".titleCotizacion").css(
+        {   
+            "font-family":"Quicksand",
+            "font-weight": "800",
+            "font-size": "25px", 
+            "text-align": "center"
+        }
+    );
+    $(".subTitleC").css(
+        {   
+            "font-family":"Quicksand",
+            "font-weight": "700",
+            "font-size": "20px",
+            "text-align": "start",
+
+            "margin-bottom": "1rem",
+            "margin-top": "1rem"
+        }
+    );
+    $(".text").css(
+        {   
+            "font-family":"Quicksand",
+            "font-weight": "500",
+            "font-size": "16px",
+
+            "width": "325px",
+            "height": "auto",
+
+            "text-align": "justify",
+
+            "flex-direction": "column",
+            "flex-wrap": "wrap",
+            "align-items": "stretch"
+        }
+    );
+    $(".textoFinal").css(
+        {
+            "font-weight": "700",
+            "font-size": "25px",
+        }    
+    )    
+    $(".superior").css(
+        {   
+            "display": "flex",
+            "flex-direction": "row",
+            "flex-wrap": "wrap",
+            "align-items": "flex-start",
+            "justify-content": "space-evenly",
+
+            "width": "100%",
+
+            "margin-bottom": "1rem",
+            "margin-top": "1rem",
+        }
+    );
+    $(".medio").css(
+        {   
+            "display": "flex",
+            "flex-direction": "row",
+            "flex-wrap": "wrap",
+            "align-items": "flex-start",
+            "justify-content": "space-evenly",
+
+            "width": "100%",
+
+            "margin-bottom": "1rem",
+            "margin-top": "1rem"
+        }
+    );
+    $(".final").css(
+        {   
+            "display": "flex",
+            "flex-direction": "row",
+            "flex-wrap": "wrap",
+            "align-items": "flex-end",
+            "justify-content": "space-evenly",
+
+            "width": "100%",
+
+            "margin-bottom": "1rem",
+            "margin-top": "1rem"
+        }
+    );
+    $(".btnConfirmar").css(
+        {
+           "width": "200px",
+            "height": "50px",
+        
+            "border-radius": "10px",
+            "border": "none",
+        
+            "background-color": "rgb(39, 39, 39)",
+            "color": "rgb(242, 184, 98)",
+        
+            "font-family":"Quicksand",
+            "font-weight": "700",
+            "font-size": "35px"
+        }
+    )
+    $(".btnConfirmarBox").css(
+        {
+            "margin-top": "2rem",
+            "margin-bottom": "2rem",
+
+            "display": "flex",
+            "justify-content": "center"
+        }
+    )
+         
 }
+function finalizarCotizacionButton() 
+{   
+    $(".btnConfirmar").on("click", function(){
+        alert("Su cotizacion fue enviada a 'Ventas'. Para proseguir pongase en contacto con el sector")
+        $("#contApp").slideUp(1000);
+    })
+}
+
 //4) Agregar informacion al Array de Remitente
 function agregarDatos(e)
 {
-    e.preventDefault();
-    validarFormulario();
+    debugger    
+        e.preventDefault(e)
+        validarFormulario();   
     if(datosOk)
-    {   
-        
+    {
+
         let remitente = e.target;
         arrayRemitente.push(new Remitente(nombreRemitente, apellidoRemitente, telefonoRemitente, emailRemitente));
         arrayReceptor.push(new Receptor(nombreReceptor, apellidoReceptor, telefonoReceptor, emailReceptor));
@@ -272,40 +441,31 @@ function agregarDatos(e)
         iva = calcularIva();
         seguroProducto = calculoSeguroProducto();
         costoTotal = sumaCostoTotal();
-    }
-    //blanqueo mis campos de input
-    formApp.children[2].value ="";
-    formApp.children[4].value ="";
-    formApp.children[6].value ="";
-    formApp.children[8].value ="";
 
-   formApp.children[11].value="";
-   formApp.children[13].value="";
-   formApp.children[15].value="";
-   formApp.children[17].value="";
-
-   formApp.children[20].value="";
-   formApp.children[22].value="";
-   formApp.children[24].value="";
-   formApp.children[26].value="";
-
-   
-
-    //PORQUE USO CONTENEDORCOTIZACION.INNERHTML
-    contenedorCotizacion.innerHTML="";
-    agregarAlDom();
+         //blanqueo mis campos de input
+         formApp.children[1].value ="";
+         formApp.children[2].value ="";
+         formApp.children[3].value ="";
+         formApp.children[4].value ="";
+ 
+         formApp.children[6].value="";
+         formApp.children[7].value="";
+         formApp.children[8].value="";
+         formApp.children[9].value="";
+ 
+         formApp.children[11].value="";
+         formApp.children[12].value="";
+         formApp.children[13].value="";
+         formApp.children[14].value="";
+         //PORQUE USO CONTENEDORCOTIZACION.INNERHTML
+         contenedorCotizacion.innerHTML="";
+        
+    }   
+    agregarAlDom();//cuando lo pongo mal, me avisa, pero lo agrega igual
+    finalizarCotizacionButton();
 }
 
 
-//Array de localStorage con mis datos que no cambian (como una base de datos)
-// let arrayDestinos = [{id: 1, provincia: "Buenos Aires", localidad: "Ciudad autonoma de Buenos Aires", distancia: 300},
-// {id: 2, provincia: "Buenos Aires", localidad: "La Plata", distancia: 360},
-// {id: 3, provincia: "Catamarca", localidad: "San Fernando del Valle de Catamarca", distancia: 850},
-// {id: 4, provincia: "Chaco", localidad: "Resistencia", distancia: 710},
-// {id: 5, provincia: "Chubut", localidad: "Rawson", distancia: 1460},
-// {id: 6, provincia: "Córdoba", localidad: "Córdoba", distancia: 400},
-// {id: 7, provincia: "Corrientes", localidad: "Corrientes", distancia: 730},
-// {id: 8, provincia: "Entre Rios",localidad: "Paraná", distancia: 205}];
 
 //Datos a Guardar para el Prespupuesto
 let arrayRemitente = [];
@@ -324,26 +484,26 @@ let costoTotal = 0;
 
 let formApp = document.getElementById("idFormApp");
 //Remitente
-let nombreRemitente = formApp.children[2];
-let apellidoRemitente = formApp.children[4];
-let telefonoRemitente = formApp.children[6];
-let emailRemitente = formApp.children[8];
+let nombreRemitente = formApp.children[1];
+let apellidoRemitente = formApp.children[2];
+let telefonoRemitente = formApp.children[3];
+let emailRemitente = formApp.children[4];
 //Receptor
-let nombreReceptor = formApp.children[11];
-let apellidoReceptor = formApp.children[13];
-let telefonoReceptor = formApp.children[15];
-let emailReceptor = formApp.children[17];
+let nombreReceptor = formApp.children[6];
+let apellidoReceptor = formApp.children[7];
+let telefonoReceptor = formApp.children[8];
+let emailReceptor = formApp.children[9];
 
 //Producto
-let nombreProducto = formApp.children[20];
-let cantidadPallet = formApp.children[22];
-let valorProducto = formApp.children[24];
-let pesoProducto = formApp.children[26];
+let nombreProducto = formApp.children[11];
+let cantidadPallet = formApp.children[12];
+let valorProducto = formApp.children[13];
+let pesoProducto = formApp.children[14];
 
 //Destino
 let destino = document.querySelector(".destino");
 
-// let btnEjecutarApp = document.getElementById('idBtnSubmit'); 
+let btnEjecutarApp = document.getElementById('idBtnSubmit'); 
 let contenedorCotizacion = document.getElementById('contenedorCotizacion');
 
 

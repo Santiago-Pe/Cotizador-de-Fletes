@@ -20,9 +20,9 @@
     <div class="mkt">
         <div class="seccion1">
             <div class="bloqueUno">
-                <img class="imgTres"  src="img/img3.png" alt="">
+                <img class="imgUno"  src="img/img1.png" alt="">
                 <p class="textoUno">
-                    Trabaja con nosotros para mejorar tus tiempos de entrega.  
+                    Trabajá con nosotros para mejorar tus tiempos de entrega.  
                 </p>
             </div>
             <div class="bloqueDos">
@@ -34,9 +34,9 @@
         </div>
         <div class="seccion2">    
             <div class="bloqueTres">
-                <img class="imgUno" src="img/img1.png" alt="calculadora">
+                <img class="imgTres" src="img/img3.png" alt="calculadora">
                 <p class="textoTres">
-                    Contamos con un cotizador express donde podrás calcular el costo total y real de lo que saldrá enviar el producto.
+                    Usá nuestro cotizador express donde podrás calcular el costo total y real de lo que saldrá enviar el producto, de la manera más rápida.
                 </p>
             </div>
         </div>
@@ -53,36 +53,25 @@
                 <div class="contenedoForm">
                         <form method="POST" id="idFormApp" >
                                 <h3>Remitente</h3>
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombreRemitente" >
-                                    <label for="apellido">Apellido:</label>
-                                    <input type="text" name="apellidoRemitente">
-                                    <label for="telefono">Télefono:</label>
-                                    <input type="number" name="telefonoRemitente">
-                                    <label for="email">Email:</label>
-                                    <input type="email" name="emailRemitente">    
+                                    <input class="input" required type="text" name="nombreRemitente" placeholder="Ingrese nombre del remitente" >
+                                    <input class="input" type="text" name="apellidoRemitente" placeholder="Ingrese apellido del remitente">
+                                    <input class="input" type="number" name="telefonoRemitente" placeholder="Ingrese télefono del remitente">
+                                    <input class="input" type="email" name="emailRemitente" placeholder="Ingrese email del remitente">    
 
                                 <h3>Receptor</h3>
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombreReceptor">
-                                    <label for="apellido">Apellido:</label>
-                                    <input type="text" name="apellidoReceptor">
-                                    <label for="telefono">Télefono:</label>
-                                    <input type="number" name="telefonoReceptor">
-                                    <label for="email">Email:</label>
-                                    <input type="email" name="emailReceptor">   
-
-                                <h3>¿Que se envia?</h3>
-                                    <label for="producto">Nombre del producto</label>
-                                    <input type="text" name="producto">
-                                    <label for="cantidad">Cantidad de pallet:</label>
-                                    <input type="number" name="cantidad">
-                                    <label for="valor">Valor total:</label>
-                                    <input type="number" name="valor" id="costo">
-                                    <label for="peso">Peso total (en toneladas):</label>
-                                    <input type="number" name="peso">
-
-                                    <select name="destino" class="destino">
+                                    <input class="input" required type="text" name="nombreReceptor" placeholder="Ingrese nombre del receptor" >
+                                    <input class="input" type="text" name="apellidoReceptor" placeholder="Ingrese apellido del receptor">
+                                    <input class="input" type="number" name="telefonoReceptor" placeholder="Ingrese télefono del receptor">
+                                    <input class="input" type="email" name="emailReceptor" placeholder="Ingrese email del receptor"> 
+     
+                                <h3>¿Qué se envía?</h3>
+                                    <input class="input" required type="text" name="nombreProducto" placeholder="Ingrese nombre del producto" >
+                                    <input class="input" type="number" name="cantidad" placeholder="Ingrese cantidad de pallet">
+                                    <input class="input" type="number" name="valor" id="costo" placeholder="Ingrese el valor del producto (en pesos)">
+                                    <input class="input" type="number" name="peso" placeholder="Ingrese el peso total (en toneladas)">
+                    
+                                <h3>Destino</h3>     
+                                    <select name="destino" class="destino input">
                                         <option value="">Seleccione su destino</option>
                                         <option value="CABA, BA" >CABA, BA</option>
                                         <option value="La Plata, BA">La Plata, BA</option>
@@ -109,98 +98,23 @@
                                         <option value="Tierra del Fuego">Tierra del Fuego</option>
                                         <option value="Tucuman">Tucuman</option> -->
                                     </select>
-
-                            
+              
                             <div class="btnBoxSubmit">                         
                                 <button id="idBtnSubmit" class="btnSubmit">Cotizar</button>
                             </div>
                         </form>
                 </div>
-    <!-- Formualrio del Receptor -->
-                <!-- <div class="contForm"> 
-                    <div class="title3">   
-                        <h3>Datos del Receptor</h3>
-                    </div>
-                    <div class="formRecp">
-                        <form method="POST" id="formInfo2" >
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" name="nombre">
-                            <label for="apellido">Apellido:</label>
-                            <input type="text" name="apellido">
-                            <label for="telefono">Télefono:</label>
-                            <input type="number" name="telefono">
-                            <label for="email">Email:</label>
-                            <input type="email" name="email">
-                        </form>
-                    </div>     
-                </div> -->
-    <!-- Formulario del Producto -->
-                <!-- <div class="contForm"> 
-                    <div class="title4">   
-                        <h3>Datos del Producto</h3>
-                    </div>
-                    <div class="formProd">
-                        <form method="POST" id="formInfo3" >
-                            <label for="producto">Nombre del producto</label>
-                            <input type="text" name="producto">
-                            <label for="cantidad">Cantidad de pallets:</label>
-                            <input type="number" name="cantidad">
-                            <label for="valor">Valor total:</label>
-                            <input type="number" name="valor" id="costo">
-                            <label for="peso">Peso total (en toneladas):</label>
-                            <input type="number" name="peso">
-                        </form>
-                    </div>
-                </div>  -->
-    <!-- Formualrio del Envio -->
-                <!-- <div class="contForm"> 
-                    <div class="title5">   
-                        <h3>Destino</h3>
-                    </div>
-                    <div class="formEnvio">    
-                        <form method="POST" id="formInfo4" >
-                            <div>
-                                <select name="destino" id="dest">
-                                    <option value="">Seleccione su destino</option>
-                                    <option value="BuenosAires" class="bsAs">Buenos Aires</option>
-                                    <option value="Capital" class="capi">Capital</option>
-                                    <option value="Catamarca" class="cata">Catamarca</option>
-                                    <option value="Chaco" class="chaco">Chaco</option>
-                                    <option value="Chubut" class="chub">Chubut</option>
-                                    <option value="Cordoba" class="cordo">Cordoba</option>
-                                    <option value="Corrientes" class="corri">Corrientes</option>
-                                    <option value="EntreRios" class="entreR">Entre Rios</option>
-                                    <option value="Formosa" class="formo">Formosa</option>
-                                    <option value="Jujuy">Jujuy</option>
-                                    <option value="LaPampa">La Pampa</option>
-                                    <option value="LaRioja">La Rioja</option>
-                                    <option value="Mendoza">Mendoza</option>
-                                    <option value="Misiones">Misiones</option>
-                                    <option value="Neuquen">Neuquen</option>
-                                    <option value="Rio Negro">Rio Negro</option>
-                                    <option value="Salta">Salta</option>
-                                    <option value="San Juan">San Juan</option>
-                                    <option value="San Luis">San Luis</option>
-                                    <option value="Santa Cruz">Santa Cruz</option>
-                                    <option value="Santa Fe">Santa Fe</option>
-                                    <option value="Santiago del Estero">Santiago del Estero</option>
-                                    <option value="Tierra del Fuego">Tierra del Fuego</option>
-                                    <option value="Tucuman">Tucuman</option>
-                                </select>
-                            </div>
-                         </form>
-                    </div>    
-                </div>  -->
                 
     <!--RESULTADO DE LA APP  -->
                 <div id="contenedorCotizacion">
+     
+
                 </div>
             </div>
     <!-- FOOTER -->
-       <footer>
-            <div class="contFooter">
+       <footer class="contFooter">
                 <div class="contContac">
-                    <h3>Contactanos!</h3>
+                    <h3>Contáctanos!</h3>
                         <div class="contac">
                             <h4>Ventas</h4>
                             <p>Tel: +54 9 341 227 8025</p>
@@ -217,15 +131,11 @@
                             <p>emial: log.cotiflet@gmail.com</p>
                         </div>
                 </div>
-                <div class="contMapa">
+               
                     <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.5973322792706!2d-60.58902128524982!3d-33.06706638532339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7a9a115f6eff1%3A0xe08a58172a3b41e7!2sParque%20Industrial%20Alvear!5e0!3m2!1ses-419!2sar!4v1630710176585!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <div class="direc">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.5973322792706!2d-60.58902128524982!3d-33.06706638532339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7a9a115f6eff1%3A0xe08a58172a3b41e7!2sParque%20Industrial%20Alvear!5e0!3m2!1ses-419!2sar!4v1630710176585!5m2!1ses-419!2sar" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         <p>Parque Industrial Alvear, Lote industrial 15, Ruta Provincial 21, Alvear, Provincia de Santa Fe</p>
-                    </div>
-                </div>            
-            </div>
+                    </div>        
        </footer>
     <script src="app2.js"></script>
 </body>
