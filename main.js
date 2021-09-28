@@ -18,6 +18,18 @@ class Receptor
         this.email = email2;
     }
 }
+class Envio
+{
+    constructor(nombreProducto, cantidadPallet, valorProducto, pesoProducto, provinciaSeleccionada, costoTotal)
+    {
+    this.producto = nombreProducto;
+    this.cantidad = cantidadPallet,
+    this.valor = valorProducto,
+    this.peso = pesoProducto,
+    this.provincia = provinciaSeleccionada;
+    this.costo = costoTotal;
+    }
+}
 
 //1) Verificacion del DOM
 function domReady()
@@ -77,6 +89,7 @@ function validarFormulario()
     }
  // 
 }
+//4) Calcuclo del costo de flete
 function calcularEnvio()
 {
     let costo = 0;
@@ -204,27 +217,27 @@ function calcularEnvio()
                 costo = precioXKm * 205;
                 break;      
         } 
-    }
-    // else(cantidadPallet > 20)
-    // {
-    //     alert("Usted requiere de más de 1 camion para transportar este pedido. Llamar directamente a Logisitca.")
-    // }    
+    }  
     return costo;      
 }
+//5) Calculo del iva sobre el costo del flete
 function calcularIva()
 {
     let costoIva = costoEnvio * 0.21;
     return costoIva
 }
+// 6) Calculo del seguro sobre el valor de porudcto ingresadp
 function calculoSeguroProducto()
 {
-    return (valorProducto * 10) / 100;
+    return (valorProducto * 3) / 100;
 }
+//7) Suma de todos los costos
 function sumaCostoTotal()
 {
     let suma = costoEnvio + iva + seguroProducto;
     return suma    
 }
+// 8) Se agrega etiquetas + estilos a la cotizacion
 function agregarAlDom()
 {
     contenedorCotizacion.innerHTML =   
@@ -417,15 +430,15 @@ function agregarAlDom()
     )
          
 }
+// 9) Botton que confimra y despliega para arriba la cotizacion
 function finalizarCotizacionButton() 
 {   
     $(".btnConfirmar").on("click", function(){
-        alert("Su cotizacion fue enviada a 'Ventas'. Para proseguir pongase en contacto con el sector")
+        alert("Su cotización acaba de ser enviada a nuestro sector de ventas. En 24hs nos contactaremos. Muchas gracias!")
         $("#contApp").slideUp(1000);
     })
 }
-
-//4) Agregar informacion al Array de Remitente
+//10) Agraga al dom, limpia campos y pushea en mis array/clases
 function agregarDatos(e)
 {
     debugger    
@@ -441,6 +454,7 @@ function agregarDatos(e)
         iva = calcularIva();
         seguroProducto = calculoSeguroProducto();
         costoTotal = sumaCostoTotal();
+        arrayEnvio.push(new Envio(nombreProducto, cantidadPallet, valorProducto, pesoProducto, destino.value, costoTotal));
 
          //blanqueo mis campos de input
          formApp.children[1].value ="";
@@ -457,12 +471,14 @@ function agregarDatos(e)
          formApp.children[12].value="";
          formApp.children[13].value="";
          formApp.children[14].value="";
-         //PORQUE USO CONTENEDORCOTIZACION.INNERHTML
+
+         document.querySelector(".destino").value ="";
          contenedorCotizacion.innerHTML="";
         
     }   
     agregarAlDom();//cuando lo pongo mal, me avisa, pero lo agrega igual
     finalizarCotizacionButton();
+    
 }
 
 
@@ -478,9 +494,7 @@ let seguroProducto = 0;
 let costoEnvio = 0;
 let iva = 0;
 let costoTotal = 0;
-// let precioXKm = 140;
 
-//3) Que me tome los datos (eventos)
 
 let formApp = document.getElementById("idFormApp");
 //Remitente
@@ -514,9 +528,4 @@ let contenedorCotizacion = document.getElementById('contenedorCotizacion');
 domReady();
 mostrarOcultarApp();
 formApp.addEventListener('submit', agregarDatos);
-
-
-
-
-
 
