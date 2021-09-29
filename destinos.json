@@ -1,0 +1,119 @@
+[
+    {
+        "id": 1,
+        "provincia": "Buenos Aires",
+        "distancia": 300
+    },
+    {
+        "id": 2,
+        "provincia": "Catamarca",
+        "distancia": 850
+    },
+    {
+        "id": 3,
+        "provincia": "Chaco",
+        "distancia": 850
+    },
+    {
+        "id": 4,
+        "provincia": "Chubut",
+        "distancia": 710
+    },
+    {
+        "id": 5,
+        "provincia": "Cordoba",
+        "distancia": 400
+    },
+    {
+        "id": 6,
+        "provincia": "Corrientes",
+        "distancia": 730
+    },
+    {
+        "id": 7,
+        "provincia": "Entre Rios",
+        "distancia": 205
+    },
+    {
+        "id": 8,
+        "provincia": "Formosa",
+        "distancia": 880
+    },
+    {
+        "id": 9,
+        "provincia": "Jujuy",
+        "distancia": 1200
+    },
+    {
+        "id": 10,
+        "provincia": "La Pampa",
+        "distancia": 640
+    },
+    {
+        "id": 11,
+        "provincia": "La Rioja",
+        "distancia": 840
+    },  
+    {
+        "id": 12,
+        "provincia": "Mendoza",
+        "distancia": 880
+    },
+    {
+        "id": 13,
+        "provincia": "Misiones",
+        "distancia": 900
+    },
+    {
+        "id": 14,
+        "provincia": "Neuquen",
+        "distancia": 1150
+    },
+    {
+        "id": 15,
+        "provincia": "Río Negro",
+        "distancia": 1020
+    },
+    {
+        "id": 16,
+        "provincia": "Salta",
+        "distancia": 1670
+    },
+    {
+        "id": 17,
+        "provincia": "San Juan",
+        "distancia": 940
+    },
+    {
+        "id": 18,
+        "provincia": "San Luis",
+        "distancia": 610
+    },
+    {
+        "id": 19,
+        "provincia": "Santa Cruz",
+        "distancia": 2600
+    },
+    {
+        "id": 20,
+        "provincia": "Santa Fe",
+        "distancia": 180
+    },
+    {
+        "id": 21,
+        "provincia": "Santiago Del Estero",
+
+        "distancia": 750
+    },
+    {
+        "id": 22,
+        "provincia": "Tierra Del Fuego",
+        "distancia": 3170
+    },
+    {
+        "id": 23,
+        "provincia": "Tucuman",
+        "distancia": 950
+    }
+
+]    

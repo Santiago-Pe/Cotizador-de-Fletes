@@ -1,3 +1,4 @@
+//CLASS
 class Remitente
 {
     constructor(nombre1, apellido1, telefono1, email1)
@@ -20,17 +21,18 @@ class Receptor
 }
 class Envio
 {
-    constructor(nombreProducto, cantidadPallet, valorProducto, pesoProducto, provinciaSeleccionada, costoTotal)
+    constructor(nombreProducto, cantidadPallet, valorProducto, pesoProducto, provincia, costoTotal)
     {
     this.producto = nombreProducto;
     this.cantidad = cantidadPallet,
     this.valor = valorProducto,
     this.peso = pesoProducto,
-    this.provincia = provinciaSeleccionada;
+    this.provincia = provincia;
     this.costo = costoTotal;
     }
 }
 
+//FUNCIONES
 //1) Verificacion del DOM
 function domReady()
 {
@@ -45,10 +47,18 @@ function mostrarOcultarApp()
         $("#contApp").toggle(1000, "swing");
     })
 }
-//3) Validacion de los datos ingresados
+//3) Cargar opciones de seleccion de destino de envio.
+function cargarOptionsSelecDesti()
+{
+    // let selectDestinos = document.getElementsByName(".destinos");
+    for (const destino of destinosArray)
+    {
+        provincia.append(new Option(destino.provincia, destino.provincia));
+    }
+}
+//4)Validar Form a completar del usuario.
 function validarFormulario()
 {
-    
     nombreRemitente = formApp.children[1].value;
     apellidoRemitente = formApp.children[2].value;
     telefonoRemitente = formApp.children[3].value;
@@ -83,161 +93,340 @@ function validarFormulario()
     {
         alert("Maximo 20 pallet o 28 tn. Usted requiere más de 1 equipo. Por favor contactarse con Logística.")
     }
-    else if (destino.value == "")
+    else if (provincia.value == "")
     {
         alert("Por favor elija un destino.")
     }
- // 
 }
-//4) Calcuclo del costo de flete
+//5)Calculo de el precio x distancia segun cantidad de pallet
 function calcularEnvio()
 {
     let costo = 0;
     let precioXKm = 0;
     if(cantidadPallet <= 5) 
     {  
-        precioXKm = 80;
-        switch(destino.value)
+        precioXKm = 100;
+        switch(provincia.value)
         {
-            case "CABA, BA":
+            case "Buenos Aires":
                 costo = precioXKm * 300;
                 break;
-            case "La Plata, BA":
-                costo = precioXKm * 400;
+            case "Catamarca":
+                costo = precioXKm * 850;
                 break;      
-            case "San Fernando del Valle de Catamarca, CA":
+            case "Chaco":
                 costo = precioXKm * 850;
                 break;     
-            case "Resistencia, CH":
+            case "Chubut":
                 costo = precioXKm * 710;
                 break;     
-            case "Rawson, CT":
-                costo = precioXKm * 1460;
-                break;     
-            case "Córdoba, CBA":
+            case "Cordoba":
                 costo = precioXKm * 400;
                 break;     
-            case "Corrientes, CR":
+            case "Corrientes":
                 costo = precioXKm * 730;
-                break;
-            case "Paraná, ER":
+                break;     
+            case "Entre Rios":
                 costo = precioXKm * 205;
-                break;      
+                break;
+            case "Formosa":
+                costo = precioXKm * 880;
+                break;  
+            case "Jujuy":
+                costo = precioXKm * 1200;
+                break; 
+            case "La Pampa":
+                costo = precioXKm * 640;
+                break;
+            case "La Rioja":
+                    costo = precioXKm * 840;
+                    break;
+            case "Mendoza":
+                costo = precioXKm * 880;
+                break; 
+            case "Misiones":
+                costo = precioXKm * 900;
+                break;  
+            case "Neuquen":
+                costo = precioXKm * 1150;
+                break;  
+            case "Rio Negro":
+                costo = precioXKm * 1020;
+                break;  
+            case "Salta":
+                costo = precioXKm * 1670;
+                break; 
+            case "San Juan":
+                costo = precioXKm * 940;
+                break;
+            case "San Luis":
+                costo = precioXKm * 610;
+                break; 
+            case "Santa Cruz":
+                costo = precioXKm * 2600;
+                break;
+            case "Santa Fe":
+                costo = precioXKm * 180;
+                break;  
+            case "Santiago Del Estero":
+                costo = precioXKm * 750;
+                break; 
+            case "Tierra Del Fuego":
+                costo = precioXKm * 3170;
+                break;
+            case "Tucuman":
+                costo = precioXKm * 950;
+                break; 
         } 
     }   
     else if(cantidadPallet <= 10) 
     {
-        precioXKm = 100;
-        switch(destino.value)
+        precioXKm = 110;
+        switch(provincia.value)
         {
-            case "CABA, BA":
+            case "Buenos Aires":
                 costo = precioXKm * 300;
                 break;
-            case "La Plata, BA":
-                costo = precioXKm * 400;
+            case "Catamarca":
+                costo = precioXKm * 850;
                 break;      
-            case "San Fernando del Valle de Catamarca, CA":
+            case "Chaco":
                 costo = precioXKm * 850;
                 break;     
-            case "Resistencia, CH":
+            case "Chubut":
                 costo = precioXKm * 710;
                 break;     
-            case "Rawson, CT":
-                costo = precioXKm * 1460;
-                break;     
-            case "Córdoba, CBA":
+            case "Cordoba":
                 costo = precioXKm * 400;
                 break;     
-            case "Corrientes, CR":
+            case "Corrientes":
                 costo = precioXKm * 730;
-                break;
-            case "Paraná, ER":
+                break;     
+            case "Entre Rios":
                 costo = precioXKm * 205;
-                break;      
+                break;
+            case "Formosa":
+                costo = precioXKm * 880;
+                break;  
+            case "Jujuy":
+                costo = precioXKm * 1200;
+                break; 
+            case "La Pampa":
+                costo = precioXKm * 640;
+                break;
+            case "La Rioja":
+                    costo = precioXKm * 840;
+                    break;
+            case "Mendoza":
+                costo = precioXKm * 880;
+                break; 
+            case "Misiones":
+                costo = precioXKm * 900;
+                break;  
+            case "Neuquen":
+                costo = precioXKm * 1150;
+                break;  
+            case "Rio Negro":
+                costo = precioXKm * 1020;
+                break;  
+            case "Salta":
+                costo = precioXKm * 1670;
+                break; 
+            case "San Juan":
+                costo = precioXKm * 940;
+                break;
+            case "San Luis":
+                costo = precioXKm * 610;
+                break; 
+            case "Santa Cruz":
+                costo = precioXKm * 2600;
+                break;
+            case "Santa Fe":
+                costo = precioXKm * 180;
+                break;  
+            case "Santiago Del Estero":
+                costo = precioXKm * 750;
+                break; 
+            case "Tierra Del Fuego":
+                costo = precioXKm * 3170;
+                break;
+            case "Tucuman":
+                costo = precioXKm * 950;
+                break; 
         } 
-    }
+    }   
     else if(cantidadPallet <= 15) 
     {
-        precioXKm = 120;
-        switch(destino.value)
+        precioXKm = 130;
+        switch(provincia.value)
         {
-            case "CABA, BA":
+            case "Buenos Aires":
                 costo = precioXKm * 300;
                 break;
-            case "La Plata, BA":
-                costo = precioXKm * 400;
+            case "Catamarca":
+                costo = precioXKm * 850;
                 break;      
-            case "San Fernando del Valle de Catamarca, CA":
+            case "Chaco":
                 costo = precioXKm * 850;
                 break;     
-            case "Resistencia, CH":
+            case "Chubut":
                 costo = precioXKm * 710;
                 break;     
-            case "Rawson, CT":
-                costo = precioXKm * 1460;
-                break;     
-            case "Córdoba, CBA":
+            case "Cordoba":
                 costo = precioXKm * 400;
                 break;     
-            case "Corrientes, CR":
+            case "Corrientes":
                 costo = precioXKm * 730;
-                break;
-            case "Paraná, ER":
+                break;     
+            case "Entre Rios":
                 costo = precioXKm * 205;
-                break;      
+                break;
+            case "Formosa":
+                costo = precioXKm * 880;
+                break;  
+            case "Jujuy":
+                costo = precioXKm * 1200;
+                break; 
+            case "La Pampa":
+                costo = precioXKm * 640;
+                break;
+            case "La Rioja":
+                    costo = precioXKm * 840;
+                    break;
+            case "Mendoza":
+                costo = precioXKm * 880;
+                break; 
+            case "Misiones":
+                costo = precioXKm * 900;
+                break;  
+            case "Neuquen":
+                costo = precioXKm * 1150;
+                break;  
+            case "Rio Negro":
+                costo = precioXKm * 1020;
+                break;  
+            case "Salta":
+                costo = precioXKm * 1670;
+                break; 
+            case "San Juan":
+                costo = precioXKm * 940;
+                break;
+            case "San Luis":
+                costo = precioXKm * 610;
+                break; 
+            case "Santa Cruz":
+                costo = precioXKm * 2600;
+                break;
+            case "Santa Fe":
+                costo = precioXKm * 180;
+                break;  
+            case "Santiago Del Estero":
+                costo = precioXKm * 750;
+                break; 
+            case "Tierra Del Fuego":
+                costo = precioXKm * 3170;
+                break;
+            case "Tucuman":
+                costo = precioXKm * 950;
+                break; 
         } 
-    }
+    }   
     else if(cantidadPallet <= 20) 
     {
-        precioXKm = 140;
-        switch(destino.value)
+        precioXKm = 150;
+        switch(provincia.value)
         {
-            case "CABA, BA":
+            case "Buenos Aires":
                 costo = precioXKm * 300;
                 break;
-            case "La Plata, BA":
-                costo = precioXKm * 400;
+            case "Catamarca":
+                costo = precioXKm * 850;
                 break;      
-            case "San Fernando del Valle de Catamarca, CA":
+            case "Chaco":
                 costo = precioXKm * 850;
                 break;     
-            case "Resistencia, CH":
+            case "Chubut":
                 costo = precioXKm * 710;
                 break;     
-            case "Rawson, CT":
-                costo = precioXKm * 1460;
-                break;     
-            case "Córdoba, CBA":
+            case "Cordoba":
                 costo = precioXKm * 400;
                 break;     
-            case "Corrientes, CR":
+            case "Corrientes":
                 costo = precioXKm * 730;
-                break;
-            case "Paraná, ER":
+                break;     
+            case "Entre Rios":
                 costo = precioXKm * 205;
-                break;      
+                break;
+            case "Formosa":
+                costo = precioXKm * 880;
+                break;  
+            case "Jujuy":
+                costo = precioXKm * 1200;
+                break; 
+            case "La Pampa":
+                costo = precioXKm * 640;
+                break;
+            case "La Rioja":
+                    costo = precioXKm * 840;
+                    break;
+            case "Mendoza":
+                costo = precioXKm * 880;
+                break; 
+            case "Misiones":
+                costo = precioXKm * 900;
+                break;  
+            case "Neuquen":
+                costo = precioXKm * 1150;
+                break;  
+            case "Rio Negro":
+                costo = precioXKm * 1020;
+                break;  
+            case "Salta":
+                costo = precioXKm * 1670;
+                break; 
+            case "San Juan":
+                costo = precioXKm * 940;
+                break;
+            case "San Luis":
+                costo = precioXKm * 610;
+                break; 
+            case "Santa Cruz":
+                costo = precioXKm * 2600;
+                break;
+            case "Santa Fe":
+                costo = precioXKm * 180;
+                break;  
+            case "Santiago Del Estero":
+                costo = precioXKm * 750;
+                break; 
+            case "Tierra Del Fuego":
+                costo = precioXKm * 3170;
+                break;
+            case "Tucuman":
+                costo = precioXKm * 950;
+                break; 
         } 
-    }  
+    }     
     return costo;      
 }
-//5) Calculo del iva sobre el costo del flete
+//6)Calcular el costo de iva del envio
 function calcularIva()
 {
     let costoIva = costoEnvio * 0.21;
     return costoIva
 }
-// 6) Calculo del seguro sobre el valor de porudcto ingresadp
+//7)Calculo del seguro del valor del producto a transportar
 function calculoSeguroProducto()
 {
     return (valorProducto * 3) / 100;
 }
-//7) Suma de todos los costos
+//8)Suma de todos los costos
 function sumaCostoTotal()
 {
     let suma = costoEnvio + iva + seguroProducto;
     return suma    
 }
-// 8) Se agrega etiquetas + estilos a la cotizacion
+//9)Se creaa la cotizacion con estilo y los datos correspondientes
 function agregarAlDom()
 {
     contenedorCotizacion.innerHTML =   
@@ -274,7 +463,7 @@ function agregarAlDom()
                 <div class = "text">
                     <h4 class ="subTitleC">Detalle de envio</h4>
                     <p><strong>Origen:</strong> Rosario, SF.</p>
-                    <p><strong>Destino:</strong> ${destino.value}</p>
+                    <p><strong>Destino:</strong> ${provincia.value}</p>
                 </div>
             </div>
             <hr> 
@@ -430,15 +619,54 @@ function agregarAlDom()
     )
          
 }
-// 9) Botton que confimra y despliega para arriba la cotizacion
+//10)Confirmacion de cotizacion y desplieuge
 function finalizarCotizacionButton() 
 {   
     $(".btnConfirmar").on("click", function(){
+        guardarDatosCoti();
+        guardarLocalStorage ();
         alert("Su cotización acaba de ser enviada a nuestro sector de ventas. En 24hs nos contactaremos. Muchas gracias!")
         $("#contApp").slideUp(1000);
     })
 }
-//10) Agraga al dom, limpia campos y pushea en mis array/clases
+//11) Blanqueo mis inputs y select en mi form
+function blanqueoDeFomr()
+{
+    formApp.children[1].value ="";
+    formApp.children[2].value ="";
+    formApp.children[3].value ="";
+    formApp.children[4].value ="";
+
+    formApp.children[6].value="";
+    formApp.children[7].value="";
+    formApp.children[8].value="";
+    formApp.children[9].value="";
+
+    formApp.children[11].value="";
+    formApp.children[12].value="";
+    formApp.children[13].value="";
+    formApp.children[14].value="";
+
+    document.querySelector(".destino").value ="";
+
+}
+//12) Blanqueo mi contenedor de la cotizacion
+function blanqueoDeMiDivContCoti()
+{
+    contenedorCotizacion.innerHTML="";
+}
+//13) Creo un nuevo array que me contenga toda la informacion.
+function guardarDatosCoti()
+{
+    datosClientes = arrayRemitente.concat(arrayReceptor);
+    datosCoti = datosClientes.concat(arrayEnvio);
+}
+//14) Guardamos en un localStoarge simulando que es una base de datos
+function guardarLocalStorage ()
+{
+    datosCotiLocalStorage = ("cotizacionConfirmada", JSON.stringify(datosCoti));
+}
+//13) Agraga al dom, limpia campos y pushea en mis array/clases
 function agregarDatos(e)
 {
     debugger    
@@ -454,48 +682,30 @@ function agregarDatos(e)
         iva = calcularIva();
         seguroProducto = calculoSeguroProducto();
         costoTotal = sumaCostoTotal();
-        arrayEnvio.push(new Envio(nombreProducto, cantidadPallet, valorProducto, pesoProducto, destino.value, costoTotal));
-
-         //blanqueo mis campos de input
-         formApp.children[1].value ="";
-         formApp.children[2].value ="";
-         formApp.children[3].value ="";
-         formApp.children[4].value ="";
- 
-         formApp.children[6].value="";
-         formApp.children[7].value="";
-         formApp.children[8].value="";
-         formApp.children[9].value="";
- 
-         formApp.children[11].value="";
-         formApp.children[12].value="";
-         formApp.children[13].value="";
-         formApp.children[14].value="";
-
-         document.querySelector(".destino").value ="";
-         contenedorCotizacion.innerHTML="";
-        
-    }   
-    agregarAlDom();//cuando lo pongo mal, me avisa, pero lo agrega igual
-    finalizarCotizacionButton();
-    
+        arrayEnvio.push(new Envio(nombreProducto, cantidadPallet, valorProducto, pesoProducto, provincia.value, costoTotal));
+        agregarAlDom();
+        finalizarCotizacionButton();
+        blanqueoDeFomr();
+    }
+    else
+    {
+        blanqueoDeMiDivContCoti();
+    }    
 }
 
-
-
-//Datos a Guardar para el Prespupuesto
+//ARRAYS
+let destinosArray = []; //donde traigo mis datos del json
 let arrayRemitente = [];
 let arrayReceptor = [];
 let arrayEnvio = [];
 
-
+//VARIABLES
+const destinosUrlJSON = "destinos.json"
 let datosOk = true;
-let seguroProducto = 0;
-let costoEnvio = 0;
-let iva = 0;
-let costoTotal = 0;
+let datosCoti;
+let datosCotiLocalStorage = "";
 
-
+//FORM
 let formApp = document.getElementById("idFormApp");
 //Remitente
 let nombreRemitente = formApp.children[1];
@@ -515,17 +725,24 @@ let valorProducto = formApp.children[13];
 let pesoProducto = formApp.children[14];
 
 //Destino
-let destino = document.querySelector(".destino");
+let provincia = document.querySelector(".destino");
 
+//Botones
 let btnEjecutarApp = document.getElementById('idBtnSubmit'); 
+let btnDesplegarApp = document.getElementsByClassName(".btnApp")
+//Contenedor donde se despliega la cotizacion
 let contenedorCotizacion = document.getElementById('contenedorCotizacion');
-
-
-
-
 
 // Algoritmo de funciones
 domReady();
 mostrarOcultarApp();
+$.getJSON(destinosUrlJSON, function (respuesta, estado) 
+{
+    if(estado === "success")
+    {
+        destinosArray = respuesta;
+        cargarOptionsSelecDesti();
+    }
+    else  (estado === "error")
+});
 formApp.addEventListener('submit', agregarDatos);
-
